@@ -1,36 +1,57 @@
-var credit = [4, 3, 3, 3, 3, 3, 2, 1];
+let pSub = ["Math", "Pysics", "Electrical", "CAED", "PysicsLab", "Civil", "English", "DT"];
+let pCredit = [4, 3, 3, 3, 3, 3, 2, 1];
+let cSub = ["Math", "CAED", "Electronics", "CProgramming", "Chemistry", "DT", "ChemistryLab", "CProgrammingLab", "Workshop"];
+let cCredit = [4, 3, 3, 3, 3, 1, 1, 1, 1];
+let cycleDict = {"c": [cSub, cCredit], "p": [pSub, pCredit]};
 
-function gradePoint(mark) {
-  if (mark >= 90) {return 10}
-  else if (mark >= 80) {return 9}
-  else if (mark >= 70) {return 8}
-  else if (mark >= 60) {return 7}
-  else if (mark >= 50) {return 6}
-  else if (mark >= 40) {return 4}
+
+function gradePoint(percentage) {
+  if (percentage >= 90) {return 10}
+  else if (percentage >= 80) {return 9}
+  else if (percentage >= 70) {return 8}
+  else if (percentage >= 60) {return 7}
+  else if (percentage >= 50) {return 6}
+  else if (percentage >= 40) {return 4}
   else {return 0}
 }
 
 
 function validate() {
-  var ma = document.getElementById("i1").value;
-  var py = document.getElementById("i2").value;
-  var el = document.getElementById("i3").value;
-  var ca = document.getElementById("i4").value;
-  var ci = document.getElementById("i5").value;
-  var pl = document.getElementById("i6").value;
-  var en = document.getElementById("i7").value;
-  var dt = document.getElementById("i8").value;
-  var marks = [ma, py, el, ca, ci, pl, en, dt];
+  let cycle = document.getElementById("cycle").value;
+  let credit = cycleDict[cycle][1];
 
-  gp = 0;
-  cd = 0;
-  for (var i = 0; i < marks.length; i++) {
-  c = credit[i];
-  m = marks[i];
-  cd += c;
-  gp += c * gradePoint(m * 2);
+  let gp = 0; let cd = 0;
+  let c; let m;
+  for (let i = 0; i < credit.length; i++) {
+    c = credit[i];
+    m = document.getElementById("i" + i.toString()).value;
+    cd += c; gp += c * gradePoint(m * 2);
   }
-  var sgpa = gp / cd;
+  const sgpa = gp / cd;
 
   alert("Your SGPA is: " + sgpa.toString());
+}
+
+
+function checkNum(evt) {
+  if (evt.which !== 8 && evt.which !== 0 && evt.which < 48 || evt.which > 57)  {evt.preventDefault()}
+}
+
+
+function setForm() {
+  let cycle = document.getElementById("cycle").value;
+  let div = document.getElementById("d1"); div.innerHTML = '';
+  let sub = cycleDict[cycle][0]; let credit = cycleDict[cycle][1];
+  for (let i = 0; i < sub.length; i++) {
+    let s = sub[i]; let c = credit[i];
+
+    let inp = document.createElement("input");
+    inp.id = "i" + i.toString(); inp.type = "number"; inp.step = "1"; inp.max = "50"; inp.min = "0";
+    inp.required = true;
+    inp.addEventListener("keypress", checkNum);
+
+    let lab = document.createElement("label"); lab.innerText = s + "(Credits " + c.toString() + ")";
+
+    div.appendChild(inp); div.appendChild(lab); div.appendChild(document.createElement("br"));
+  }
 }

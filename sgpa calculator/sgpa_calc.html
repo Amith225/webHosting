@@ -2,26 +2,21 @@
 <html>
 
 <head>
-<script src="./sgpa_calc.js"></script>
+    <script src="sgpa_calc.js"></script>
 </head>
 
 <body>
-<form onsubmit="validate()">
-
-<label id="l1">Calculate Your SGPA</label><br>
-<br>
-<!-- automate this repeatation, too lazy to do it today -->
-<input id="i1" type="number" step="1" max="50" min="0" required onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"> :Math<br>
-<input id="i2" type="number" step="1" max="50" min="0" required onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"> :Physics<br>
-<input id="i3" type="number" step="1" max="50" min="0" required onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"> :Electrical<br>
-<input id="i4" type="number" step="1" max="50" min="0" required onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"> :CAED<br>
-<input id="i5" type="number" step="1" max="50" min="0" required onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"> :Civil<br>
-<input id="i6" type="number" step="1" max="50" min="0" required onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"> :PhysicsLab<br>
-<input id="i7" type="number" step="1" max="50" min="0" required onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"> :English<br>
-<input id="i8" type="number" step="1" max="50" min="0" required onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"> :DT<br>
-<br>
-<input id="s1" type="submit">
-
+<form onsubmit="validate()" id="f1">
+    <label id="l1">Calculate Your SGPA</label><br>
+    <select id="cycle" onchange="setForm()">
+        <option value="p">Pysics Cycle</option>
+        <option value="c">Chemistry Cycle</option>
+    </select>
+    <br><br>
+    <div id="d1"></div>
+    <script>setForm()</script>
+    <br>
+    <input id="s1" type="submit">
 </form>
 </body>
 
