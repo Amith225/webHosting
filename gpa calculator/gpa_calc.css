@@ -2,32 +2,11 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#container { display:block; }
-
-@media only screen and (orientation:portrait){
-  #container {
-    height: 100vw;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-}
-
-@media only screen and (orientation:landscape){
-  #container {
-     -webkit-transform: rotate(0deg);
-     -moz-transform: rotate(0deg);
-     -o-transform: rotate(0deg);
-     -ms-transform: rotate(0deg);
-     transform: rotate(0deg);
-  }
-}
+#container {display:block;}
 
 #d1 {
   display: grid;
-  grid-template-columns: 10% 25% 25% 25% 10%;
+  grid-template-columns: 12.5% 6.6% 8% 9% 10% 6.6%;
 }
 
 .main, .cell, .dynamic, .entry {padding: 5px}
@@ -35,7 +14,6 @@
   font-weight: bold;
   border: 1px solid #f18e8e;
   background: #ffbfbf;
-  text-align: center;
 }
 
 .cell {
@@ -55,7 +33,6 @@
   font-size: 14px;
   font-weight: 600;
 }
-
 .entry:focus, .dynamic:hover {
     box-shadow: 5px 5px 7px grey;
     margin: -5px 5px 5px -5px;

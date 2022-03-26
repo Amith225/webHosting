@@ -72,9 +72,9 @@ function updateDep(i) {
 }
 
 
-function setEntry(inp, iName, i, s) {
+function setEntry(inp, iName, i) {
   inp.id = iName + i.toString(); inp.type = "number"; inp.step = "1"; inp.max = "50"; inp.min = "0";
-  inp.required = true; inp.className = "entry"; inp.placeholder = s
+  inp.required = true; inp.className = "entry"; inp.placeholder = "0-50"
   inp.addEventListener("keypress", checkNum);
   inp.addEventListener("keyup", function (evt) {updateDep(i)});
 }
@@ -84,30 +84,34 @@ function setForm() {
   let cycle = document.getElementById("cycle").value;
   let div = document.getElementById("d1");
   marks = []; pers = []
-  div.innerHTML = '<div class="main">Credits</div><div class="main">Internal Marks Entry</div>' +
+  div.innerHTML = '<div class="main">Subject</div><div class="main">Credits</div><div class="main">Internal Marks Entry</div>' +
       '</div><div class="main">SEE Marks Entry (disabled)</div><div class="main">Percentage</div><div class="main">Grade Point</div>';
   let sub = cycleDict[cycle][0]; let credit = cycleDict[cycle][1];
   for (let i = 0; i < sub.length; i++) {
     let s = sub[i]; let c = credit[i];
 
+    let labSub = document.createElement("label"); labSub.innerText = s; labSub.className = "main";
     let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "main";
     let inpInternal = document.createElement("input"); let inpSee = document.createElement("input");
     let labPer = document.createElement("label"); labPer.id = 'lp' + i.toString(); labPer.className = "dynamic";
     let labGp = document.createElement("label"); labGp.id = 'lgp' + i.toString(); labGp.className = "dynamic";
-    setEntry(inpInternal, 'i', i, s); setEntry(inpSee, 'is', i, s)
+    setEntry(inpInternal, 'i', i); setEntry(inpSee, 'is', i)
     inpSee.disabled = true;
 
-    div.appendChild(labCredit); div.appendChild(inpInternal); div.appendChild(inpSee); div.appendChild(labPer); div.appendChild(labGp);
+    div.appendChild(labSub); div.appendChild(labCredit); div.appendChild(inpInternal); div.appendChild(inpSee);
+    div.appendChild(labPer); div.appendChild(labGp);
 
     marks.push(0);
     pers.push(0);
   }
   maxMark = credit.length * 50; maxPer = credit.length * 100;
+  let total = document.createElement('label'); total.innerText = "Total = "; total.className = "main";
   let tCredit = document.createElement("label"); tCredit.className = "main";
   tCredit.innerText = credit.reduce(function (a, b) {return a + b}, 0);
   let tMark = document.createElement("label"); tMark.id = 'tm'; tMark.className = "dynamic";
   let tMarkSee = document.createElement("label"); tMarkSee.id = 'tms'; tMarkSee.className = "dynamic";
   let tPer = document.createElement("label"); tPer.id = 'tp'; tPer.className = "dynamic";
-  let total = document.createElement('label'); total.innerText = "Total"; total.className = "main"
-  div.appendChild(tCredit); div.appendChild(tMark); div.appendChild(tMarkSee); div.appendChild(tPer); div.appendChild(total);
+  let empty = document.createElement("label"); empty.className = "main"
+  div.appendChild(total); div.appendChild(tCredit); div.appendChild(tMark); div.appendChild(tMarkSee);
+  div.appendChild(tPer); div.appendChild(empty)
 }
