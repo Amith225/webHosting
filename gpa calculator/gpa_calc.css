@@ -1,17 +1,43 @@
-/* (A) 2 COLUMNS PER ROW */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#register {
+  width: 400px;
+}
+
 #d1 {
   display: grid;
-  grid-template-columns: 15% 7.5% 7.5% 10%;
-  grid-gap: 1px;
+  grid-template-columns: 7.5% 10% 10% 7.5%;
 }
-/* (C) OPTIONAL FOR THE CELLS */
-.head, .cell { padding: 5px; }
-.head {
+
+.main, .cell, .dynamic, .entry {padding: 5px}
+.main {
   font-weight: bold;
   border: 1px solid #f18e8e;
   background: #ffbfbf;
+  text-align: center;
 }
+
 .cell {
   border: 1px solid #c2ba3c;
   background: #f8ffde;
+  text-align: center;
+}
+
+.dynamic {
+  border: 1px solid #c2ba3c;
+  background: #f8ffde;
+  text-align: center;
+}
+
+.entry {
+  padding: 3px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.entry:focus, .dynamic:hover {
+    box-shadow: 5px 5px 7px grey;
+    margin: -5px 5px 5px -5px;
 }

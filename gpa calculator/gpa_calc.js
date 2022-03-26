@@ -1,8 +1,10 @@
-let pSub = ["Math", "Pysics", "Electrical", "CAED", "PysicsLab", "Civil", "English", "DT"];
-let pCredit = [4, 3, 3, 3, 3, 3, 2, 1];
-let cSub = ["Math", "CAED", "Electronics", "CProgramming", "Chemistry", "DT", "ChemistryLab", "CProgrammingLab", "Workshop"];
+let pSub = ["Math", "Pysics", "Electrical", "CAED", "Civil", "English", "DT", "PysicsLab"];
+let pCredit = [4, 3, 3, 3, 3, 2, 1, 1];
+let cSub = ["Math", "Mech", "Electronics", "CProgramming", "Chemistry", "DT", "ChemistryLab", "CProgrammingLab", "Workshop"];
 let cCredit = [4, 3, 3, 3, 3, 1, 1, 1, 1];
 let cycleDict = {"c": [cSub, cCredit], "p": [pSub, pCredit]};
+let marks; let maxMark;
+let pers; let maxPer;
 
 
 function gradePoint(percentage) {
@@ -43,39 +45,62 @@ function checkNum(evt) {
 }
 
 
-function updatePer(i) {
+function updateDep(i) {
   let m = document.getElementById("i" + i.toString()).value;
   let labPer = document.getElementById("lp" + i.toString());
-  let text;
+  let labGp = document.getElementById("lgp" + i.toString());
+  let textPer = ''; let textGp = '';
   if (m) {
+    marks[i] = parseInt(m);
     let per = m * 2;
-    if (per <= 100) {text = per.toString()}
-    else {text = ''}
+    pers[i] = per;
+    if (per <= 100) {textPer = per.toString() + '%'; textGp = gradePoint(per).toString()}
+    else {marks[i] = 0; pers[i] = 0;}
   }
-  else {text = ''}
-  labPer.innerText = text
+  else {marks[i] = 0; pers[i] = 0;}
+  labPer.innerText = textPer
+  labGp.innerText = textGp
+
+  let tMark = document.getElementById('tm');
+  let tPer = document.getElementById('tp');
+  let totalMarks = marks.reduce(function (a, b) {return a + b}, 0)
+  if (totalMarks) {
+    tMark.innerText = totalMarks.toString() + '/' + maxMark.toString();
+    tPer.innerText = (pers.reduce(function (a, b) {return a + b}, 0) / pers.length).toString() + '%';
+  }
+  else {tMark.innerText = ''; tPer.innerText = '';}
 }
 
 
 function setForm() {
   let cycle = document.getElementById("cycle").value;
   let div = document.getElementById("d1");
-  div.innerHTML = '<div class="head">Subject</div><div class="head">Credits</div>' +
-      '<div class="head">Internal Marks Entry</div><div class="head">Percentage</div>';
+  marks = []; pers = []
+  div.innerHTML = '<div class="main">Credits</div><div class="main">Internal Marks Entry</div>' +
+      '<div class="main">Percentage</div><div class="main">Grade Point</div>';
   let sub = cycleDict[cycle][0]; let credit = cycleDict[cycle][1];
   for (let i = 0; i < sub.length; i++) {
     let s = sub[i]; let c = credit[i];
 
-    let labSub = document.createElement("label"); labSub.innerText = s; labSub.className = "cell";
-    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "cell";
+    let labGp = document.createElement("label"); labGp.id = 'lgp' + i.toString(); labGp.className = "dynamic";
     let inp = document.createElement("input");
-    let labPer = document.createElement("label");
-    labPer.id = 'lp' + i.toString(); labPer.innerText = ''; labPer.className = "cell";
+    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "cell";
+    let labPer = document.createElement("label"); labPer.id = 'lp' + i.toString(); labPer.className = "dynamic";
     inp.id = "i" + i.toString(); inp.type = "number"; inp.step = "1"; inp.max = "50"; inp.min = "0";
-    inp.required = true;
+    inp.required = true; inp.className = "entry"; inp.placeholder = s
     inp.addEventListener("keypress", checkNum);
-    inp.addEventListener("keyup", function (evt) {updatePer(i)})
+    inp.addEventListener("keyup", function (evt) {updateDep(i)});
 
-    div.appendChild(labSub); div.appendChild(labCredit); div.appendChild(inp); div.appendChild(labPer)
+    div.appendChild(labCredit); div.appendChild(inp); div.appendChild(labPer); div.appendChild(labGp);
+
+    marks.push(0);
+    pers.push(0);
   }
+  maxMark = credit.length * 50; maxPer = credit.length * 100;
+  let tCredit = document.createElement("label"); tCredit.className = "cell";
+  tCredit.innerText = credit.reduce(function (a, b) {return a + b}, 0);
+  let tMark = document.createElement("label"); tMark.id = 'tm'; tMark.className = "dynamic";
+  let tPer = document.createElement("label"); tPer.id = 'tp'; tPer.className = "dynamic";
+  let total = document.createElement('label'); total.innerText = "Total"; total.className = "main"
+  div.appendChild(tCredit); div.appendChild(tMark); div.appendChild(tPer); div.appendChild(total);
 }
