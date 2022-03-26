@@ -1,7 +1,7 @@
 /* (A) 2 COLUMNS PER ROW */
 #d1 {
   display: grid;
-  grid-template-columns: 15% 7.5% 7.5%;
+  grid-template-columns: 15% 7.5% 7.5% 10%;
   grid-gap: 1px;
 }
 /* (C) OPTIONAL FOR THE CELLS */

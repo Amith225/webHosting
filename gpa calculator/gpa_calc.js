@@ -25,7 +25,8 @@ function validate() {
   for (let i = 0; i < credit.length; i++) {
     c = credit[i];
     m = document.getElementById("i" + i.toString()).value;
-    let currGp = c * gradePoint(m * 2)
+    let per = m * 2;
+    let currGp = c * gradePoint(per)
     cd += c; gp += currGp;
     if (currGp !== 0) {cgpaCd += c}
   }
@@ -42,21 +43,39 @@ function checkNum(evt) {
 }
 
 
+function updatePer(i) {
+  let m = document.getElementById("i" + i.toString()).value;
+  let labPer = document.getElementById("lp" + i.toString());
+  let text;
+  if (m) {
+    let per = m * 2;
+    if (per <= 100) {text = per.toString()}
+    else {text = ''}
+  }
+  else {text = ''}
+  labPer.innerText = text
+}
+
+
 function setForm() {
   let cycle = document.getElementById("cycle").value;
   let div = document.getElementById("d1");
-  div.innerHTML = '<div class="head">Subject</div><div class="head">Credits</div><div class="head">Marks Entry</div>';
+  div.innerHTML = '<div class="head">Subject</div><div class="head">Credits</div>' +
+      '<div class="head">Internal Marks Entry</div><div class="head">Percentage</div>';
   let sub = cycleDict[cycle][0]; let credit = cycleDict[cycle][1];
   for (let i = 0; i < sub.length; i++) {
     let s = sub[i]; let c = credit[i];
 
-    let inp = document.createElement("input"); inp.className = "cell"
-    let labSub = document.createElement("label"); labSub.innerText = s; labSub.className = "cell"
-    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "cell"
+    let labSub = document.createElement("label"); labSub.innerText = s; labSub.className = "cell";
+    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "cell";
+    let inp = document.createElement("input");
+    let labPer = document.createElement("label");
+    labPer.id = 'lp' + i.toString(); labPer.innerText = ''; labPer.className = "cell";
     inp.id = "i" + i.toString(); inp.type = "number"; inp.step = "1"; inp.max = "50"; inp.min = "0";
     inp.required = true;
     inp.addEventListener("keypress", checkNum);
+    inp.addEventListener("keyup", function (evt) {updatePer(i)})
 
-    div.appendChild(labSub); div.appendChild(labCredit); div.appendChild(inp);
+    div.appendChild(labSub); div.appendChild(labCredit); div.appendChild(inp); div.appendChild(labPer)
   }
 }
