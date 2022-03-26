@@ -4,7 +4,7 @@
 
 #d1 {
   display: grid;
-  grid-template-columns: 10% 25% 25% 10%;
+  grid-template-columns: 10% 25% 25% 25% 10%;
 }
 
 .main, .cell, .dynamic, .entry {padding: 5px}
