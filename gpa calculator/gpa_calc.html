@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="gpa_calc.js"></script>
+        <title>Calculate GPA</title>
+    </head>
+    <body>
+        <form onsubmit="validate()" id="f1">
+            <label id="l1">Calculate Your GPA (1st sem)</label><br>
+            <label for="cycle">Select Cycle: </label><select id="cycle" onchange="setForm()">
+                <option value="p">Pysics Cycle</option>
+                <option value="c">Chemistry Cycle</option>
+            </select>
+            <br><br>
+            <div id="d1"></div>
+            <script>setForm()</script>
+            <br>
+            <input id="s1" type="submit">
+        </form>
+    </body>
+</html>
