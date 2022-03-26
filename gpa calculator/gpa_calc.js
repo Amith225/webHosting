@@ -84,17 +84,22 @@ function setForm() {
   let cycle = document.getElementById("cycle").value;
   let div = document.getElementById("d1");
   marks = []; pers = []
-  div.innerHTML = '<div class="main">Subject</div><div class="main">Credits</div><div class="main">Internal Marks Entry</div>' +
-      '</div><div class="main">SEE Marks Entry (disabled)</div><div class="main">Percentage</div><div class="main">Grade Point</div>';
+  div.innerHTML = '' +
+      '<div class="main + main-grad" style="border-radius: 20px 0 0 0">Subject</div>' +
+      '<div class="main + main-grad">Credits</div>' +
+      '<div class="main + main-grad">Internal Marks Entry</div>' +
+      '<div class="main + main-grad">SEE Marks Entry (disabled)</div>' +
+      '<div class="main + main-grad">Percentage</div>' +
+      '<div class="main + main-grad" style="border-radius: 0 20px 0 0">Grade Point</div>';
   let sub = cycleDict[cycle][0]; let credit = cycleDict[cycle][1];
   for (let i = 0; i < sub.length; i++) {
     let s = sub[i]; let c = credit[i];
 
-    let labSub = document.createElement("label"); labSub.innerText = s; labSub.className = "main";
-    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "main";
+    let labSub = document.createElement("label"); labSub.innerText = s; labSub.className = "main + main-grad2";
+    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "main + main-grad2";
     let inpInternal = document.createElement("input"); let inpSee = document.createElement("input");
-    let labPer = document.createElement("label"); labPer.id = 'lp' + i.toString(); labPer.className = "dynamic";
-    let labGp = document.createElement("label"); labGp.id = 'lgp' + i.toString(); labGp.className = "dynamic";
+    let labPer = document.createElement("label"); labPer.id = 'lp' + i.toString(); labPer.className = "dynamic + dynamic-grad";
+    let labGp = document.createElement("label"); labGp.id = 'lgp' + i.toString(); labGp.className = "dynamic + dynamic-grad";
     setEntry(inpInternal, 'i', i); setEntry(inpSee, 'is', i)
     inpSee.disabled = true;
 
@@ -112,6 +117,8 @@ function setForm() {
   let tMarkSee = document.createElement("label"); tMarkSee.id = 'tms'; tMarkSee.className = "dynamic";
   let tPer = document.createElement("label"); tPer.id = 'tp'; tPer.className = "dynamic";
   let empty = document.createElement("label"); empty.className = "main"
+  empty.style = "border-radius: 0 0 20px 0"
+  total.style = "border-radius: 0 0 0 20px"
   div.appendChild(total); div.appendChild(tCredit); div.appendChild(tMark); div.appendChild(tMarkSee);
   div.appendChild(tPer); div.appendChild(empty)
 }

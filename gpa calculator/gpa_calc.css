@@ -1,6 +1,6 @@
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 100%;
+  font-size: small;
 }
 
 #container {display:block;}
@@ -10,29 +10,27 @@
   grid-template-columns: 12.5% 6.6% 8% 9% 10% 6.6%;
 }
 
-.main, .cell, .dynamic, .entry {padding: 5px}
+.main, .dynamic, .entry {padding: 5px}
+
 .main {
   font-weight: bold;
-  border: 1px solid #f18e8e;
+  border: 1px solid rgb(211, 112, 112);
   background: #ffbfbf;
 }
-
-.cell {
-  border: 1px solid #c2ba3c;
-  background: #f8ffde;
-  text-align: center;
-}
+.main-grad {background: linear-gradient(to right, rgb(241, 142, 142), rgb(255, 191, 191))}
+.main-grad2 {background: radial-gradient(rgb(255, 191, 191), rgb(241, 142, 142))}
 
 .dynamic {
-  border: 1px solid #c2ba3c;
-  background: #f8ffde;
+  border: 1px solid rgb(194, 186, 60);
   text-align: center;
+  background: rgb(248, 255, 222);
 }
+.dynamic-grad {background: linear-gradient(to left, rgb(224, 216, 90), rgb(248, 255, 222));}
 
 .entry {
   padding: 3px;
-  font-size: 14px;
   font-weight: 600;
+  background: radial-gradient(rgb(210, 220, 230), rgb(230, 220, 210));
 }
 .entry:focus, .dynamic:hover {
     box-shadow: 5px 5px 7px grey;
