@@ -29,7 +29,7 @@ function validate() {
   }
   const sgpa = gp / cd;
 
-  alert("Your SGPA is: " + sgpa.toString());
+  alert("Your SGPA for internals is: " + sgpa.toString());
 }
 
 
