@@ -4,19 +4,19 @@
         <link rel="stylesheet" href="gpa_calc.css">
         <script src="gpa_calc.js"></script>
         <title>Calculate GPA</title>
-        <meta name="viewport" content="width=device-width, initial-scale=.473">
+        <meta name="viewport" content="width=device-width, initial-scale=.4">
     </head>
     <body id="container">
         <form onsubmit="validate()" id="f1">
-            <label id="l1">Calculate Your GPA (1st sem)</label><br>
-            <label for="cycle">Select Cycle: </label><select id="cycle" onchange="setForm()">
+            <label id="l1" class="label">Calculate Your GPA (1st sem)</label><br><br>
+            <label for="cycle" class="label">Select Cycle: </label><select id="cycle" onchange="setForm()" class="label">
                 <option value="p">Pysics Cycle</option>
                 <option value="c">Chemistry Cycle</option>
             </select>
             <br><br>
             <div id="d1"><script>setForm()</script></div>
             <br>
-            <input id="s1" type="submit">
+            <button id="s1" type="submit" class="button">submit</button>
         </form>
     </body>
 </html>
