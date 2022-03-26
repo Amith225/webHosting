@@ -44,18 +44,19 @@ function checkNum(evt) {
 
 function setForm() {
   let cycle = document.getElementById("cycle").value;
-  let div = document.getElementById("d1"); div.innerHTML = '';
+  let div = document.getElementById("d1");
+  div.innerHTML = '<div class="head">Subject</div><div class="head">Credits</div><div class="head">Marks Entry</div>';
   let sub = cycleDict[cycle][0]; let credit = cycleDict[cycle][1];
   for (let i = 0; i < sub.length; i++) {
     let s = sub[i]; let c = credit[i];
 
-    let inp = document.createElement("input");
+    let inp = document.createElement("input"); inp.className = "cell"
+    let labSub = document.createElement("label"); labSub.innerText = s; labSub.className = "cell"
+    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "cell"
     inp.id = "i" + i.toString(); inp.type = "number"; inp.step = "1"; inp.max = "50"; inp.min = "0";
     inp.required = true;
     inp.addEventListener("keypress", checkNum);
 
-    let lab = document.createElement("label"); lab.innerText = s + "(Credits " + c.toString() + ")";
-
-    div.appendChild(inp); div.appendChild(lab); div.appendChild(document.createElement("br"));
+    div.appendChild(labSub); div.appendChild(labCredit); div.appendChild(inp);
   }
 }
