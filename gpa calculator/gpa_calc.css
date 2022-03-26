@@ -1,0 +1,17 @@
+/* (A) 2 COLUMNS PER ROW */
+#d1 {
+  display: grid;
+  grid-template-columns: 15% 7.5% 7.5%;
+  grid-gap: 1px;
+}
+/* (C) OPTIONAL FOR THE CELLS */
+.head, .cell { padding: 5px; }
+.head {
+  font-weight: bold;
+  border: 1px solid #f18e8e;
+  background: #ffbfbf;
+}
+.cell {
+  border: 1px solid #c2ba3c;
+  background: #f8ffde;
+}
