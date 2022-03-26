@@ -2,13 +2,9 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#register {
-  width: 400px;
-}
-
 #d1 {
   display: grid;
-  grid-template-columns: 7.5% 10% 10% 7.5%;
+  grid-template-columns: 10% 25% 25% 10%;
 }
 
 .main, .cell, .dynamic, .entry {padding: 5px}

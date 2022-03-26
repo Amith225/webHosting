@@ -1,6 +1,6 @@
-let pSub = ["Math", "Pysics", "Electrical", "CAED", "Civil", "English", "DT", "PysicsLab"];
+let pSub = ["Math", "Pysics", "Electrical", "CAED", "Civil", "English", "DT", "Pysics Lab"];
 let pCredit = [4, 3, 3, 3, 3, 2, 1, 1];
-let cSub = ["Math", "Mech", "Electronics", "CProgramming", "Chemistry", "DT", "ChemistryLab", "CProgrammingLab", "Workshop"];
+let cSub = ["Math", "Mech", "Electronics", "CProgramming", "Chemistry", "DT", "Chemistry Lab", "CProgramming Lab", "Workshop"];
 let cCredit = [4, 3, 3, 3, 3, 1, 1, 1, 1];
 let cycleDict = {"c": [cSub, cCredit], "p": [pSub, pCredit]};
 let marks; let maxMark;
@@ -82,10 +82,10 @@ function setForm() {
   for (let i = 0; i < sub.length; i++) {
     let s = sub[i]; let c = credit[i];
 
-    let labGp = document.createElement("label"); labGp.id = 'lgp' + i.toString(); labGp.className = "dynamic";
+    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "main";
     let inp = document.createElement("input");
-    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "cell";
     let labPer = document.createElement("label"); labPer.id = 'lp' + i.toString(); labPer.className = "dynamic";
+    let labGp = document.createElement("label"); labGp.id = 'lgp' + i.toString(); labGp.className = "dynamic";
     inp.id = "i" + i.toString(); inp.type = "number"; inp.step = "1"; inp.max = "50"; inp.min = "0";
     inp.required = true; inp.className = "entry"; inp.placeholder = s
     inp.addEventListener("keypress", checkNum);
@@ -97,7 +97,7 @@ function setForm() {
     pers.push(0);
   }
   maxMark = credit.length * 50; maxPer = credit.length * 100;
-  let tCredit = document.createElement("label"); tCredit.className = "cell";
+  let tCredit = document.createElement("label"); tCredit.className = "main";
   tCredit.innerText = credit.reduce(function (a, b) {return a + b}, 0);
   let tMark = document.createElement("label"); tMark.id = 'tm'; tMark.className = "dynamic";
   let tPer = document.createElement("label"); tPer.id = 'tp'; tPer.className = "dynamic";
