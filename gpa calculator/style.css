@@ -48,7 +48,7 @@ body {
 }
 @media (pointer:none), (pointer:coarse) {
   body {max-width: 100%; font-size: 10px;}
-  #d1 {grid-template-columns: 31% 21% 21% 21%; left: 3%;}
+  #d1 {grid-template-columns: 30% 20% 20% 20%; left: 10%;}
 }
 
 .head {
