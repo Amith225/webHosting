@@ -21,10 +21,12 @@ function validate() {
   let cycle = document.getElementById("cycle").value, credit = cycleDict[cycle][1];
 
   let gp = 0, cd = 0, cgpaCd = 0;
-  let c, m;
+  let c, mi, ms;
   for (let i = 0; i < credit.length; i++) {
-    c = credit[i]; m = document.getElementById("i" + i.toString()).value;
-    let per = m * 2, currGp = c * gradePoint(per);
+    c = credit[i];
+    mi = document.getElementById("ii" + i.toString()).value;
+    ms = document.getElementById("is" + i.toString()).value;  // todo: for see marks
+    let per = mi * 2, currGp = c * gradePoint(per);
     cd += c; gp += currGp;
     if (currGp !== 0) {cgpaCd += c}
   }
@@ -51,13 +53,17 @@ function updateDep(i) {
     marksInt[i] = parseInt(mi);
     let per = mi * 2;
     pers[i] = per;
-    if (per <= 100) {textPerGp = per.toString() + '%' + ' (' + gradePoint(per).toString() + ')'}
+    if (per <= 100) {
+      textPerGp =
+        '<text style="float: left">' + per.toString() + '%' + '</text>' +
+        '<text style="float: right">' + ' (' + gradePoint(per).toString() + ')' + '</text>';
+    }
     else {marksInt[i] = 0; pers[i] = 0;}
   }
   else {marksInt[i] = 0; pers[i] = 0;}
-  labPerGp.innerText = textPerGp
+  labPerGp.innerHTML = textPerGp;
 
-  let labTMarkInt = document.getElementById('tmi'), labTPerGp = document.getElementById('tgp');
+  let labTMarkInt = document.getElementById('tmi'), labTPerGp = document.getElementById('tpg');
   let totalMarks = sum(marksInt);
   if (totalMarks) {
     labTMarkInt.innerText = totalMarks.toString() + '/' + maxMark.toString();
