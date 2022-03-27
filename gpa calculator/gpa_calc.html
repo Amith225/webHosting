@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="gpa_calc.css">
+        <link rel="stylesheet" href="style.css">
         <script src="gpa_calc.js"></script>
         <title>Calculate GPA</title>
-        <meta name="viewport" content="width=device-width, initial-scale=.4">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body id="container">
+    <body>
         <form onsubmit="validate()" id="f1">
-            <label id="l1" class="label">Calculate Your GPA (1st sem)</label><br><br>
-            <label for="cycle" class="label">Select Cycle: </label><select id="cycle" onchange="setForm()" class="label">
-                <option value="p">Pysics Cycle</option>
-                <option value="c">Chemistry Cycle</option>
+            <label id="l1">Calculate Your GPA (1st sem)</label><br><br>
+            <label for="cycle" id="l2">Select Cycle: </label><select id="cycle" onchange="setForm()">
+                <option value="p" class="option">Pysics Cycle</option>
+                <option value="c" class="option">Chemistry Cycle</option>
             </select>
             <br><br>
             <div id="d1"><script>setForm()</script></div>
             <br>
-            <button id="s1" type="submit" class="button">submit</button>
+            <button type="submit" id="b1">submit</button>
         </form>
     </body>
 </html>

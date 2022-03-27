@@ -3,8 +3,7 @@ let pCredit = [4, 3, 3, 3, 3, 2, 1, 1];
 let cSub = ["Math", "Mech", "Electronics", "CProgramming", "Chemistry", "DT", "Chemistry Lab", "CProgramming Lab", "Workshop"];
 let cCredit = [4, 3, 3, 3, 3, 1, 1, 1, 1];
 let cycleDict = {"c": [cSub, cCredit], "p": [pSub, pCredit]};
-let marks; let maxMark;
-let pers; let maxPer;
+let marksInt, marksSee, maxMark, pers, maxPer;
 
 
 function gradePoint(percentage) {
@@ -19,25 +18,23 @@ function gradePoint(percentage) {
 
 
 function validate() {
-  let cycle = document.getElementById("cycle").value;
-  let credit = cycleDict[cycle][1];
+  let cycle = document.getElementById("cycle").value, credit = cycleDict[cycle][1];
 
-  let gp = 0; let cd = 0; let cgpaCd = 0;
-  let c; let m;
+  let gp = 0, cd = 0, cgpaCd = 0;
+  let c, m;
   for (let i = 0; i < credit.length; i++) {
-    c = credit[i];
-    m = document.getElementById("i" + i.toString()).value;
-    let per = m * 2;
-    let currGp = c * gradePoint(per)
+    c = credit[i]; m = document.getElementById("i" + i.toString()).value;
+    let per = m * 2, currGp = c * gradePoint(per);
     cd += c; gp += currGp;
     if (currGp !== 0) {cgpaCd += c}
   }
-  const sgpa = gp / cd;
-  const cgpa = gp / cgpaCd;
-
+  const sgpa = gp / cd, cgpa = gp / cgpaCd;
   alert("Your SGPA is: " + sgpa.toString() + '\n' +
         "Your CGPA is: " + cgpa.toString());
 }
+
+
+function sum(array) {return array.reduce(function (a, b) {return a + b}, 0);}
 
 
 function checkNum(evt) {
@@ -46,79 +43,79 @@ function checkNum(evt) {
 
 
 function updateDep(i) {
-  let m = document.getElementById("i" + i.toString()).value;
-  let labPer = document.getElementById("lp" + i.toString());
-  let labGp = document.getElementById("lgp" + i.toString());
-  let textPer = ''; let textGp = '';
-  if (m) {
-    marks[i] = parseInt(m);
-    let per = m * 2;
+  let mi = document.getElementById("ii" + i.toString()).value;
+  let ms = document.getElementById('is' + i.toString()).value;  // todo: for see marks
+  let labPerGp = document.getElementById("lpg" + i.toString());
+  let textPerGp = '';
+  if (mi) {
+    marksInt[i] = parseInt(mi);
+    let per = mi * 2;
     pers[i] = per;
-    if (per <= 100) {textPer = per.toString() + '%'; textGp = gradePoint(per).toString()}
-    else {marks[i] = 0; pers[i] = 0;}
+    if (per <= 100) {textPerGp = per.toString() + '%' + ' (' + gradePoint(per).toString() + ')'}
+    else {marksInt[i] = 0; pers[i] = 0;}
   }
-  else {marks[i] = 0; pers[i] = 0;}
-  labPer.innerText = textPer
-  labGp.innerText = textGp
+  else {marksInt[i] = 0; pers[i] = 0;}
+  labPerGp.innerText = textPerGp
 
-  let tMark = document.getElementById('tm');
-  let tPer = document.getElementById('tp');
-  let totalMarks = marks.reduce(function (a, b) {return a + b}, 0)
+  let labTMarkInt = document.getElementById('tmi'), labTPerGp = document.getElementById('tgp');
+  let totalMarks = sum(marksInt);
   if (totalMarks) {
-    tMark.innerText = totalMarks.toString() + '/' + maxMark.toString();
-    tPer.innerText = (pers.reduce(function (a, b) {return a + b}, 0) / pers.length).toString() + '%';
+    labTMarkInt.innerText = totalMarks.toString() + '/' + maxMark.toString();
+    labTPerGp.innerText = (pers.reduce(function (a, b) {return a + b}, 0) / pers.length).toString() + '%';
   }
-  else {tMark.innerText = ''; tPer.innerText = '';}
+  else {labTMarkInt.innerText = ''; labTPerGp.innerText = '';}
 }
 
 
 function setEntry(inp, iName, i) {
   inp.id = iName + i.toString(); inp.type = "number"; inp.step = "1"; inp.max = "50"; inp.min = "0";
   inp.required = true; inp.className = "entry"; inp.placeholder = "0-50"
-  inp.addEventListener("keypress", checkNum);
-  inp.addEventListener("keyup", function (evt) {updateDep(i)});
+  inp.addEventListener("keypress", checkNum); inp.addEventListener("keyup", function (_) {updateDep(i)});
 }
 
 
 function setForm() {
   let cycle = document.getElementById("cycle").value;
   let div = document.getElementById("d1");
-  marks = []; pers = []
-  div.innerHTML = '' +
-      '<div class="main + main-grad" style="border-radius: 20px 0 0 0">Subject</div>' +
-      '<div class="main + main-grad">Credits</div>' +
-      '<div class="main + main-grad">Internal Marks Entry</div>' +
-      '<div class="main + main-grad">SEE Marks Entry (disabled)</div>' +
-      '<div class="main + main-grad">Percentage</div>' +
-      '<div class="main + main-grad" style="border-radius: 0 20px 0 0">Grade Point</div>';
   let sub = cycleDict[cycle][0]; let credit = cycleDict[cycle][1];
+  marksInt = []; marksSee = []; pers = []; maxMark = credit.length * 50; maxPer = credit.length * 100;
+  div.innerHTML =
+    '<div class="head">Course (Credits)</div>' +
+    '<div class="head">Internal Marks Entry</div>' +
+    '<div class="head">SEE Marks Entry (disabled)</div>' +
+    '<div class="head">% (GP)</div>';
   for (let i = 0; i < sub.length; i++) {
     let s = sub[i]; let c = credit[i];
 
-    let labSub = document.createElement("label"); labSub.innerText = s; labSub.className = "main + main-grad2";
-    let labCredit = document.createElement("label"); labCredit.innerText = c; labCredit.className = "main + main-grad2";
+    let labSub = document.createElement("label");
+    labSub.id = 'ls'
+    labSub.innerHTML =
+        '<text style="float: left">' + s + '</text>' +
+        '<text style="float: right">' + ' (' + c.toString() + ')' + '</text>';
+    labSub.className = "head";
+    div.appendChild(labSub);
+
     let inpInternal = document.createElement("input"); let inpSee = document.createElement("input");
-    let labPer = document.createElement("label"); labPer.id = 'lp' + i.toString(); labPer.className = "dynamic + dynamic-grad";
-    let labGp = document.createElement("label"); labGp.id = 'lgp' + i.toString(); labGp.className = "dynamic + dynamic-grad";
-    setEntry(inpInternal, 'i', i); setEntry(inpSee, 'is', i)
+    setEntry(inpInternal, 'ii', i); setEntry(inpSee, 'is', i)
     inpSee.disabled = true;
+    div.appendChild(inpInternal); div.appendChild(inpSee);
 
-    div.appendChild(labSub); div.appendChild(labCredit); div.appendChild(inpInternal); div.appendChild(inpSee);
-    div.appendChild(labPer); div.appendChild(labGp);
+    let labPerGp = document.createElement("label");
+    labPerGp.id = 'lpg' + i.toString();
+    labPerGp.className = "dynamic";
+    div.appendChild(labPerGp);
 
-    marks.push(0);
-    pers.push(0);
+    marksInt.push(0); marksInt.push(0); pers.push(0);
   }
-  maxMark = credit.length * 50; maxPer = credit.length * 100;
-  let total = document.createElement('label'); total.innerText = "Total = "; total.className = "main";
-  let tCredit = document.createElement("label"); tCredit.className = "main";
-  tCredit.innerText = credit.reduce(function (a, b) {return a + b}, 0);
-  let tMark = document.createElement("label"); tMark.id = 'tm'; tMark.className = "dynamic";
-  let tMarkSee = document.createElement("label"); tMarkSee.id = 'tms'; tMarkSee.className = "dynamic";
-  let tPer = document.createElement("label"); tPer.id = 'tp'; tPer.className = "dynamic";
-  let empty = document.createElement("label"); empty.className = "main"
-  empty.style = "border-radius: 0 0 20px 0"
-  total.style = "border-radius: 0 0 0 20px"
-  div.appendChild(total); div.appendChild(tCredit); div.appendChild(tMark); div.appendChild(tMarkSee);
-  div.appendChild(tPer); div.appendChild(empty)
+  let labTotal = document.createElement('label');
+  labTotal.innerText = "Total" + ' (' + sum(credit).toString() + ')' + ' = ';
+  labTotal.className = "head";
+  div.appendChild(labTotal);
+
+  let labTMarkInt = document.createElement("label"); labTMarkInt.id = 'tmi'; labTMarkInt.className = "dynamic";
+  let labTMarkSee = document.createElement("label"); labTMarkSee.id = 'tms'; labTMarkSee.className = "dynamic";
+  div.appendChild(labTMarkInt); div.appendChild(labTMarkSee);
+
+  let labTPerGp = document.createElement("label"); labTPerGp.id = 'tpg'; labTPerGp.className = "dynamic";
+  div.appendChild(labTPerGp);
 }

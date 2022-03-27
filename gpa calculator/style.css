@@ -1,0 +1,63 @@
+html {
+    max-width: 100%;
+    background-color:#ebebeb;
+}
+
+body {
+    max-width: 75%;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    font-family: Verdana, serif;
+    border: solid 2px #0094ff;
+    font-size: 15px;
+    background-color: #dffe91;
+}
+
+#f1 {
+
+}
+
+#l1 {
+
+}
+
+#l2 {
+
+}
+
+#cycle {
+
+}
+
+.option {
+
+}
+
+#d1 {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.head {
+    font-weight: bold;
+    border: 1px solid rgb(211, 112, 112);
+    background: radial-gradient(rgb(255, 191, 191), rgb(241, 142, 142));
+    padding: 8px;
+}
+#ls {
+    text-align: left;
+}
+
+.dynamic {
+    border: 1px solid rgb(194, 186, 60);
+    background: rgb(248, 255, 222);
+}
+
+.entry {
+
+}
+
+#b1 {
+
+}
