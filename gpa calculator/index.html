@@ -10,15 +10,17 @@
     </head>
     <body>
         <form onsubmit="validate()" id="f1">
-            <label id="l1">Calculate Your GPA (1st sem)</label><br><br>
-            <label for="cycle" id="l2">Select Cycle: </label><select id="cycle" onchange="setForm()">
-                <option value="p" class="option">Pysics Cycle</option>
-                <option value="c" class="option">Chemistry Cycle</option>
-            </select>
-            <br><br>
+            <br>
+            <label id="l1" class="first + btn">Calculate Your GPA (1st sem)</label><br><br>
+            <label id="l2" class="first + btn">Select Cycle: </label>
+                <select id="cycle" onchange="setForm()" class="third + btn">
+                    <option value="p" class="option">Pysics Cycle</option>
+                    <option value="c" class="option">Chemistry Cycle</option>
+                </select>
+            <br>
             <div id="d1"><script>setForm()</script></div>
             <br>
-            <button type="submit" id="b1">submit</button>
+            <button type="submit" id="b1" class="fifth + btn">submit</button>
         </form>
     </body>
 </html>

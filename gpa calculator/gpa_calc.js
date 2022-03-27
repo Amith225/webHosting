@@ -67,7 +67,7 @@ function updateDep(i) {
   let totalMarks = sum(marksInt);
   if (totalMarks) {
     labTMarkInt.innerText = totalMarks.toString() + '/' + maxMark.toString();
-    labTPerGp.innerText = (pers.reduce(function (a, b) {return a + b}, 0) / pers.length).toString() + '%';
+    labTPerGp.innerText = (sum(pers) / pers.length).toFixed(2).toString() + '%';
   }
   else {labTMarkInt.innerText = ''; labTPerGp.innerText = '';}
 }
