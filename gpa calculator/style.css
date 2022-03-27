@@ -36,14 +36,20 @@ body {
 
 #d1 {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 15% 15% 15%;
+    position: relative;
+    top: 10px;
+    left: 15%;
+}
+@media screen and (max-width: 640px) {
+  body {max-width: 100%}
+  #grid-col {grid-template-columns: 30% 20% 20% 20%; left: 5%;}
 }
 
 .head {
     font-weight: bold;
     border: 1px solid rgb(211, 112, 112);
     background: radial-gradient(rgb(255, 191, 191), rgb(241, 142, 142));
-    padding: 8px;
 }
 #ls {
     text-align: left;
@@ -57,6 +63,12 @@ body {
 .entry {
 
 }
+.entry:focus, .dynamic:hover {
+  box-shadow: 5px 5px 7px grey;
+  margin: -5px 5px 5px -5px;
+}
+
+.head, .dynamic, .entry {padding: 8px;}
 
 #b1 {
 

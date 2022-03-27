@@ -51,11 +51,15 @@ function updateDep(i) {
     marksInt[i] = parseInt(mi);
     let per = mi * 2;
     pers[i] = per;
-    if (per <= 100) {textPerGp = per.toString() + '%' + ' (' + gradePoint(per).toString() + ')'}
+    if (per <= 100) {
+      textPerGp =
+        '<text style="float: left">' + per.toString() + '%' + '</text>' +
+        '<text style="float: right">' + ' (' + gradePoint(per).toString() + ')' + '</text>';
+    }
     else {marksInt[i] = 0; pers[i] = 0;}
   }
   else {marksInt[i] = 0; pers[i] = 0;}
-  labPerGp.innerText = textPerGp
+  labPerGp.innerHTML = textPerGp;
 
   let labTMarkInt = document.getElementById('tmi'), labTPerGp = document.getElementById('tgp');
   let totalMarks = sum(marksInt);
