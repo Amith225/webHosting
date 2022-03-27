@@ -1,6 +1,8 @@
 html {
     max-width: 100%;
     background-color:#ebebeb;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -13,6 +15,8 @@ body {
     border: solid 2px #0094ff;
     font-size: 15px;
     background-color: #dffe91;
+    position: relative;
+    overflow-x: hidden;
 }
 
 #f1 {
@@ -43,8 +47,8 @@ body {
     left: 15%;
 }
 @media (pointer:none), (pointer:coarse) {
-  body {max-width: 100%}
-  #d1 {grid-template-columns: 30% 20% 20% 20%; left: 5%;}
+  body {max-width: 100%; font-size: 10px;}
+  #d1 {grid-template-columns: 31% 21% 21% 21%; left: 3%;}
 }
 
 .head {

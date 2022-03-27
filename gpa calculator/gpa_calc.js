@@ -88,7 +88,7 @@ function setForm() {
   div.innerHTML =
     '<div class="head">Course (Credits)</div>' +
     '<div class="head">Internal Marks Entry</div>' +
-    '<div class="head">SEE Marks Entry (disabled)</div>' +
+    '<div class="head">SEE Marks Entry (X)</div>' +
     '<div class="head">% (GP)</div>';
   for (let i = 0; i < sub.length; i++) {
     let s = sub[i]; let c = credit[i];
