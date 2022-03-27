@@ -9,11 +9,11 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
     </head>
     <body>
-        <form onsubmit="validate()" id="f1" onchange="document.body.focus()">
+        <form onsubmit="validate()" id="f1">
             <br>
             <label id="l1" class="first + btn">Calculate Your GPA (1st sem)</label><br><br>
             <label id="l2" class="first + btn">Select Cycle: </label>
-                <select id="cycle" onchange="setForm()" class="third + btn">
+                <select id="cycle" onchange="setForm(); document.body.focus()" class="third + btn">
                     <option value="p" class="option">Pysics Cycle</option>
                     <option value="c" class="option">Chemistry Cycle</option>
                 </select>
