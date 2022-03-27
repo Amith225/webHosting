@@ -1,6 +1,8 @@
 html {
     max-width: 100%;
     background-color:#ebebeb;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -13,6 +15,7 @@ body {
     border: solid 2px #0094ff;
     font-size: 15px;
     background-color: #dffe91;
+    position: relative;
 }
 
 #f1 {
