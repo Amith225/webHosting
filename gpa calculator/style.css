@@ -5,6 +5,7 @@ html {
 
 body {
     max-width: 75%;
+    min-height: 100vh;
     text-align: center;
     margin: auto;
     padding: 10px;
@@ -43,7 +44,7 @@ body {
 }
 @media (pointer:none), (pointer:coarse) {
   body {max-width: 100%}
-  #grid-col {grid-template-columns: 30% 20% 20% 20%; left: 5%;}
+  #d1 {grid-template-columns: 30% 20% 20% 20%; left: 5%;}
 }
 
 .head {
