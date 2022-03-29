@@ -1,7 +1,7 @@
 :root {
-    --labInpRatio: 50%;
+    --labInpRatio: 60%;
     --height: 100%;
-    --width: 80%;
+    --width: 120%;
     --pad: 6px;
     --labBGColor: #1d3557;
     /*--labBGColor: #ab3326;*/
@@ -41,7 +41,7 @@ sliding-input div label {
     align-items: center;
     /*justify-content: center;*/
     /*--------------------------*/
-    background: var(--labBGColor);
+    background: linear-gradient(to right, var(--labBGColor), #333);
     color: var(--labColor);
 
     -webkit-transition: all var(--smoothDelay) ease-in-out;
@@ -58,7 +58,7 @@ sliding-input div:hover label {
 }
 
 .typed {
-    background: var(--labFocusedBGColor);
+    background: linear-gradient(to right, var(--labFocusedBGColor), #777);
     color: var(--labFocusedColor);
     width: var(--labInpRatio);
     font: var(--fontSizeFocus) bold;
@@ -86,6 +86,8 @@ sliding-input div input {
 @media (pointer: none), (pointer: coarse) {
     * {
         font-size: small;
+        --width: 160%;
+        --labInpRatio: 80%;
     }
     sliding-input div input::placeholder {font-size: 80%}
 }

@@ -24,6 +24,16 @@ body {
     grid-template-columns: 80% 20%;
 }
 
+#end {
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+}
+
+#submit {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
 .btn {
     box-sizing: border-box;
     appearance: none;
@@ -32,8 +42,7 @@ body {
     cursor: pointer;
     align-self: center;
     line-height: 1;
-    margin: 20px;
-    padding: 1.2em 2.8em;
+    padding: 11px 5px;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
@@ -51,6 +60,7 @@ body {
     background-position: 0;
     color: #fff;
     outline: 0;
+    animation: hue-rotate 5s linear infinite;
 }
 
 @media (pointer: none), (pointer: coarse) {
@@ -58,7 +68,27 @@ body {
         width: 100%
     }
 
-    /*#hide, #p, #c {*/
+    /*#hide, #p, #c, #end {*/
     /*    grid-template-columns: 80% 20%*/
     /*}*/
+}
+
+sliding-input div label {
+    animation: hue-rotate 8s linear infinite;
+    /*background: linear-gradient(to left, currentColor, #fff);*/
+}
+
+@keyframes hue-rotate {
+   from {
+       -webkit-filter: hue-rotate(0);
+       -moz-filter: hue-rotate(0);
+       -ms-filter: hue-rotate(0);
+       filter: hue-rotate(0);
+  }
+   to {
+       -webkit-filter: hue-rotate(360deg);
+       -moz-filter: hue-rotate(360deg);
+       -ms-filter: hue-rotate(360deg);
+       filter: hue-rotate(360deg);
+  }
 }

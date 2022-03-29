@@ -26,12 +26,20 @@
             <option value="c">Chemistry Cycle</option>
         </select>
     </div>
-    <form id="form-container">
+    <form id="form-container" onsubmit="calculate()">
         <div id="hide"></div>
         <div id="p"></div>
         <div id="c"></div>
+        <div id="end">
+            <label style="display: flex; align-self: center; justify-content: center;">Total =<br>(20)</label>
+            <label id='tm' style="align-self: center">CIE: <br>SEE: </label>
+            <label id='lpg' style="align-self: center; text-align: right;">GP <br> &nbsp;&nbsp;&nbsp;%</label>
+        </div>
         <br>
-        <input type="submit" value="Calculate" class="btn">
+        <div id="submit">
+            <input type="submit" value="Calculate" class="btn">
+            <label id="gpa" style="align-self: center; text-align: right;"> CGPA<br> SGPA</label>
+        </div>
     </form>
     <script>setForm()</script>
 </div>
