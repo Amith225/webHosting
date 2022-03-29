@@ -1,220 +1,106 @@
-html {
-    max-width: 100%;
-    background-color: #2c3e50;
-    overflow-x: hidden;
-    width: 100%;
-}
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
 body {
-    max-width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2c3e50;
+}
+
+#main-container {
+    color: #fff;
+    padding: 20px;
+    background-color: #e74c3c;
+    width: 33%;
     min-height: 100vh;
-    text-align: center;
-    margin: auto;
-    padding: 10px;
-    font-family: Verdana, serif;
-    border: solid 2px #0094ff;
-    font-size: 15px;
-    position: relative;
-    overflow-x: hidden;
+    margin: 20px;
+    box-shadow: 5px 5px 7px gray;
+
+    -webkit-transition: all var(--smoothDelay) ease-in-out;
+    -moz-transition: all var(--smoothDelay) ease-in-out;
+    -o-transition: all var(--smoothDelay) ease-in-out;
+    -ms-transition: all var(--smoothDelay) ease-in-out;
+    transition: all var(--smoothDelay) ease-in-out;
+}
+#main-container:hover {
+    box-shadow: 10px 10px 7px grey;
+    margin: 0px 20px 20px 0px;
 }
 
-#f1 {
-
+.hidden {
+    display: none !important;
 }
 
-#l1 {
-    margin: 10px;
-    padding: 10px;
-    cursor: default;
-}
-
-#l2 {
-    margin: 10px;
-    padding: 10px;
-    cursor: default;
-}
-
-#cycle {
-    margin: 10px;
-    padding: 10px;
-    cursor: default;
-}
-
-.option {
-    color: #000;
-}
-
-#d1 {
+#hide, #p, #c {
     display: grid;
-    width: 70%;
-    grid-template-columns: 33% 22% 22% 23%;
-    position: relative;
-    top: 10px;
-    left: 15%;
-    box-shadow: 5px 5px 7px grey;
+    grid-template-columns: 80% 20%;
 }
 
-@media (pointer: none), (pointer: coarse) {
-    body {
-        max-width: 100%;
-        font-size: 10px;
-    }
-
-    #d1 {
-        width: 100%;
-        left: 0
-    }
+#end {
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
 }
 
-.head {
-    font-weight: bold;
-    border: 1px solid rgb(211, 112, 112);
-    background: radial-gradient(rgb(255, 191, 191), rgb(241, 142, 142));
-}
-
-#ls {
-    text-align: left;
-}
-
-.dynamic {
-    border: 1px solid rgb(194, 186, 60);
-    background: rgb(248, 255, 222);
-}
-
-.entry {
-
-}
-
-.entry:focus, .dynamic:hover {
-    box-shadow: 5px 5px 7px grey;
-    margin: -5px 5px 5px -5px;
-}
-
-.entry::placeholder {
-    font-size: 100%;
-}
-
-.head, .dynamic, .entry {
-    padding: 8px;
-}
-
-#b1 {
-
+#submit {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .btn {
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
-    border: 2px solid #e74c3c;
     border-radius: 0.6em;
-    color: #e74c3c;
     cursor: pointer;
     align-self: center;
     line-height: 1;
-    margin: 20px;
-    padding: 1.2em 2.8em;
+    padding: 11px 5px;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-}
-
-.btn:hover, .btn:focus {
-    color: #fff;
-    outline: 0;
-}
-
-.first {
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-}
-
-.first:hover {
-    box-shadow: 0 0 40px 40px #e74c3c inset;
-}
-
-.second {
-    border-radius: 3em;
-    border-color: #1abc9c;
-    color: #fff;
-    background-image: linear-gradient(to right, rgba(26, 188, 156, 0.6), rgba(26, 188, 156, 0.6) 5%, #1abc9c 5%, #1abc9c 10%, rgba(26, 188, 156, 0.6) 10%, rgba(26, 188, 156, 0.6) 15%, #1abc9c 15%, #1abc9c 20%, rgba(26, 188, 156, 0.6) 20%, rgba(26, 188, 156, 0.6) 25%, #1abc9c 25%, #1abc9c 30%, rgba(26, 188, 156, 0.6) 30%, rgba(26, 188, 156, 0.6) 35%, #1abc9c 35%, #1abc9c 40%, rgba(26, 188, 156, 0.6) 40%, rgba(26, 188, 156, 0.6) 45%, #1abc9c 45%, #1abc9c 50%, rgba(26, 188, 156, 0.6) 50%, rgba(26, 188, 156, 0.6) 55%, #1abc9c 55%, #1abc9c 60%, rgba(26, 188, 156, 0.6) 60%, rgba(26, 188, 156, 0.6) 65%, #1abc9c 65%, #1abc9c 70%, rgba(26, 188, 156, 0.6) 70%, rgba(26, 188, 156, 0.6) 75%, #1abc9c 75%, #1abc9c 80%, rgba(26, 188, 156, 0.6) 80%, rgba(26, 188, 156, 0.6) 85%, #1abc9c 85%, #1abc9c 90%, rgba(26, 188, 156, 0.6) 90%, rgba(26, 188, 156, 0.6) 95%, #1abc9c 95%, #1abc9c 100%);
-    background-position: 0 0;
-    background-size: 100%;
-    transition: background 300ms ease-in-out;
-}
-
-.second:hover {
-    background-position: 100px;
-}
-
-.third {
-    border-color: #3498db;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-    transition: all 150ms ease-in-out;
-}
-
-.third:hover {
-    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
-}
-
-.fourth {
-    border-color: #f1c40f;
+    border: 2px solid #f1c40f;
     color: #fff;
     background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
     background-position: 100%;
     background-size: 400%;
-    transition: background 300ms ease-in-out;
+    transition: background 800ms ease-in-out;
 }
 
-.fourth:hover {
+.btn:hover, .btn:focus {
     background-position: 0;
-}
-
-.fifth {
-    border-color: #8e44ad;
-    border-radius: 0;
-    color: #8e44ad;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 150ms ease-in-out;
-}
-
-.fifth:after {
-    content: '';
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 100%;
-    background: #8e44ad;
-    z-index: -1;
-    transition: width 150ms ease-in-out;
-}
-
-.fifth:hover {
     color: #fff;
+    outline: 0;
+    animation: hue-rotate 5s linear infinite;
 }
 
-.fifth:hover:after {
-    width: 110%;
+@media (pointer: none), (pointer: coarse) {
+    #main-container {
+        width: 100%
+    }
+
+    /*#hide, #p, #c, #end {*/
+    /*    grid-template-columns: 80% 20%*/
+    /*}*/
 }
 
-.sixth {
-    border-radius: 3em;
-    border-color: #2ecc71;
-    color: #2ecc71;
-    background-image: linear-gradient(to bottom, transparent 50%, #2ecc71 50%);
-    background-position: 0% 0%;
-    background-size: 210%;
-    transition: background 150ms ease-in-out, color 150ms ease-in-out;
+sliding-input div label {
+    animation: hue-rotate 8s linear infinite;
+    /*background: linear-gradient(to left, currentColor, #fff);*/
 }
 
-.sixth:hover {
-    color: #fff;
-    background-position: 0 100%;
+@keyframes hue-rotate {
+   from {
+       -webkit-filter: hue-rotate(0);
+       -moz-filter: hue-rotate(0);
+       -ms-filter: hue-rotate(0);
+       filter: hue-rotate(0);
+  }
+   to {
+       -webkit-filter: hue-rotate(360deg);
+       -moz-filter: hue-rotate(360deg);
+       -ms-filter: hue-rotate(360deg);
+       filter: hue-rotate(360deg);
+  }
 }

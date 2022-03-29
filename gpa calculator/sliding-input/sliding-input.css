@@ -1,0 +1,93 @@
+:root {
+    --labInpRatio: 60%;
+    --height: 100%;
+    --width: 120%;
+    --pad: 6px;
+    --labBGColor: #1d3557;
+    /*--labBGColor: #ab3326;*/
+    --labFocusedBGColor: #457b9d;
+    /*--labColor: #8ea485;*/
+    --labColor: #dacdcd;
+    --labHoverColor: #a8dadc;
+    --labFocusedColor: black;
+    --smoothDelay: 500ms;
+    --fontSizeFocus: 90%;
+    --rad: 15px;
+    --margin: 4px;
+}
+
+sliding-input {
+    width: 100%;
+}
+
+sliding-input div {
+    width: fit-content;
+    position: relative;
+    margin: var(--margin);
+}
+
+sliding-input div label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--width);
+    height: 100%;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+    border-radius: var(--rad) 0 var(--rad) var(--rad);
+
+    /*-----centering label------*/
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+    /*--------------------------*/
+    background: linear-gradient(to right, var(--labBGColor), #333);
+    color: var(--labColor);
+
+    -webkit-transition: all var(--smoothDelay) ease-in-out;
+    -moz-transition: all var(--smoothDelay) ease-in-out;
+    -o-transition: all var(--smoothDelay) ease-in-out;
+    -ms-transition: all var(--smoothDelay) ease-in-out;
+    transition: all var(--smoothDelay) ease-in-out;
+}
+
+sliding-input div:hover label {
+    width: var(--labInpRatio);
+    color: var(--labHoverColor);
+    font-size: var(--fontSizeFocus);
+}
+
+.typed {
+    background: linear-gradient(to right, var(--labFocusedBGColor), #777);
+    color: var(--labFocusedColor);
+    width: var(--labInpRatio);
+    font: var(--fontSizeFocus) bold;
+
+    box-shadow: 5px 5px 7px grey;
+    margin: -5px 5px 5px -5px;
+}
+
+sliding-input div input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    padding: 0;
+    margin: 0;
+    border-radius: var(--rad) 0 var(--rad) var(--rad);
+
+    border-color: #e74c3c;
+
+    width: calc(var(--width) + 2 * var(--pad));
+    line-height: calc(var(--height) + 2 * var(--pad));
+    padding-left: calc(var(--labInpRatio) + 2 * var(--pad));
+}
+
+@media (pointer: none), (pointer: coarse) {
+    * {
+        font-size: small;
+        --width: 160%;
+        --labInpRatio: 80%;
+    }
+    sliding-input div input::placeholder {font-size: 80%}
+}
