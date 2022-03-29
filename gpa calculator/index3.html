@@ -11,24 +11,16 @@
     <body>
         <form onsubmit="validate()" id="f1">
             <br>
-            <label id="l1" class="first btn">
-                Calculate Your GPA (1st sem)
-            </label><br><br>
-            <label id="l2" class="first btn">
-                Select Cycle:
-                <select id="cycle" onchange="setForm(); document.body.focus()" style="font: inherit;">
+            <label id="l1" class="first + btn">Calculate Your GPA (1st sem)</label><br><br>
+            <label id="l2" class="first + btn">Select Cycle: </label>
+                <select id="cycle" onchange="setForm(); document.body.focus()" class="third + btn">
                     <option value="p" class="option">Pysics Cycle</option>
                     <option value="c" class="option">Chemistry Cycle</option>
                 </select>
-            </label><br><br>
-            <label class="first btn">
-                Enable SEE Marks Entry
-                <input type="checkbox" id="chk" onchange="enableInpSee(!document.getElementById('chk').checked)">
-            </label>
-            <br><br>
+            <br>
             <div id="d1"><script>setForm()</script></div>
             <br>
-            <button type="submit" id="b1" class="fifth btn">submit</button>
+            <button type="submit" id="b1" class="fifth + btn">submit</button>
         </form>
     </body>
 </html>

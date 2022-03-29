@@ -25,8 +25,12 @@ function validate() {
   for (let i = 0; i < credit.length; i++) {
     c = credit[i];
     mi = document.getElementById("ii" + i.toString()).value;
-    ms = document.getElementById("is" + i.toString()).value;  // todo: for see marks
-    let per = mi * 2, currGp = c * gradePoint(per);
+    ms = document.getElementById("is" + i.toString()).value;
+    let mii = mi, mss = ms;
+    if (!mi) {mii = ms}
+    if (!ms) {mss = mi}
+    let m = parseInt(mii) + parseInt(mss);
+    let per = m, currGp = c * gradePoint(per);
     cd += c; gp += currGp;
     if (currGp !== 0) {cgpaCd += c}
   }
@@ -46,30 +50,41 @@ function checkNum(evt) {
 
 function updateDep(i) {
   let mi = document.getElementById("ii" + i.toString()).value;
-  let ms = document.getElementById('is' + i.toString()).value;  // todo: for see marks
+  let ms = document.getElementById('is' + i.toString()).value;
   let labPerGp = document.getElementById("lpg" + i.toString());
   let textPerGp = '';
-  if (mi) {
+  let mii = mi, mss = ms;
+  if (!mi) {mii = ms}
+  if (!ms) {mss = mi}
+  let m = parseInt(mii) + parseInt(mss);
+  if (m) {
     marksInt[i] = parseInt(mi);
-    let per = mi * 2;
+    marksSee[i] = parseInt(ms);
+    let per = m;
     pers[i] = per;
     if (per <= 100) {
       textPerGp =
         '<text style="float: left">' + per.toString() + '%' + '</text>' +
         '<text style="float: right">' + ' (' + gradePoint(per).toString() + ')' + '</text>';
     }
-    else {marksInt[i] = 0; pers[i] = 0;}
+    else {marksInt[i] = 0; marksSee[i] = 0; pers[i] = 0;}
   }
-  else {marksInt[i] = 0; pers[i] = 0;}
+  else {marksInt[i] = 0; marksSee[i] = 0; pers[i] = 0;}
   labPerGp.innerHTML = textPerGp;
 
-  let labTMarkInt = document.getElementById('tmi'), labTPerGp = document.getElementById('tpg');
-  let totalMarks = sum(marksInt);
-  if (totalMarks) {
-    labTMarkInt.innerText = totalMarks.toString() + '/' + maxMark.toString();
+  let labTMarkInt = document.getElementById('tmi'), labTMarkSee = document.getElementById('tms');
+  let labTPerGp = document.getElementById('tpg');
+  let totalMarksI = sum(marksInt), totalMarksS = sum(marksSee);
+  if (totalMarksI) {
+    labTMarkInt.innerText = totalMarksI.toString() + '/' + maxMark.toString();
     labTPerGp.innerText = (sum(pers) / pers.length).toFixed(2).toString() + '%';
   }
   else {labTMarkInt.innerText = ''; labTPerGp.innerText = '';}
+  if (totalMarksS) {
+    labTMarkSee.innerText = totalMarksS.toString() + '/' + maxMark.toString();
+    labTPerGp.innerText = (sum(pers) / pers.length).toFixed(2).toString() + '%';
+  }
+  else {labTMarkSee.innerText = '';}
 }
 
 
@@ -77,6 +92,14 @@ function setEntry(inp, iName, i) {
   inp.id = iName + i.toString(); inp.type = "number"; inp.step = "1"; inp.max = "50"; inp.min = "0";
   inp.required = true; inp.className = "entry"; inp.placeholder = "0-50"
   inp.addEventListener("keypress", checkNum); inp.addEventListener("keyup", function (_) {updateDep(i)});
+}
+
+
+function enableInpSee(disable=false) {
+  for (let i = 0; i < marksSee.length; i++) {
+    let inpSee = document.getElementById('is' + i.toString());
+    inpSee.disabled = disable;
+  }
 }
 
 
@@ -103,7 +126,6 @@ function setForm() {
 
     let inpInternal = document.createElement("input"); let inpSee = document.createElement("input");
     setEntry(inpInternal, 'ii', i); setEntry(inpSee, 'is', i)
-    inpSee.disabled = true;
     div.appendChild(inpInternal); div.appendChild(inpSee);
 
     let labPerGp = document.createElement("label");
@@ -111,8 +133,9 @@ function setForm() {
     labPerGp.className = "dynamic";
     div.appendChild(labPerGp);
 
-    marksInt.push(0); marksInt.push(0); pers.push(0);
+    marksInt.push(0); marksSee.push(0); pers.push(0);
   }
+  enableInpSee(true);
   let labTotal = document.createElement('label');
   labTotal.innerText = "Total" + ' (' + sum(credit).toString() + ')' + ' = ';
   labTotal.className = "head";
