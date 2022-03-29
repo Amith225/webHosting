@@ -9,14 +9,20 @@ function setForm() {
         let sub = cycleDict[cycle][0], credit = cycleDict[cycle][1];
         let container = document.getElementById(cycle);
         for (let i = 0; i < sub.length; i++) {
-            let sii = document.createElement("sliding-input");
-            sii.id = 'ii' + i.toString();
-            sii.label = sub[i] + ' (credits:' +credit[i].toString() + ')';
-            sii.placeholder = '0-50';
-            container.appendChild(sii);
-            slidingInput(sii);
+            let si = document.createElement("sliding-input");
+            si.id = 'ii' + i.toString(); // todo
+            si.label = sub[i] + ' (credits:' +credit[i].toString() + ')';
+            si.placeholder1 = '0-50 (CIE)'; si.placeholder2 = '0-50 (SEE)';
+            container.appendChild(si)
+
+            let l = document.createElement("label");
+            l.innerText = "GP \n %";
+            l.style = "align-self: center"
+            container.appendChild(l);
+
+            slidingInput(si);
         }
-        container.hidden = true;
+        container.classList.add("hidden");
     }
 }
 
@@ -24,7 +30,7 @@ function changeForm() {
     let cycleValue = document.getElementById("cycle").value;
     for (let cycle in cycleDict) {
         let container = document.getElementById(cycle);
-        if (cycleValue === cycle) container.hidden = false;
-        else container.hidden = true;
+        if (cycleValue !== cycle) container.classList.add("hidden")
+        else container.classList.remove("hidden")
     }
 }
