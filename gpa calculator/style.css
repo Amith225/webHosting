@@ -13,6 +13,18 @@ body {
     background-color: #e74c3c;
     width: 33%;
     min-height: 100vh;
+    margin: 20px;
+    box-shadow: 5px 5px 7px gray;
+
+    -webkit-transition: all var(--smoothDelay) ease-in-out;
+    -moz-transition: all var(--smoothDelay) ease-in-out;
+    -o-transition: all var(--smoothDelay) ease-in-out;
+    -ms-transition: all var(--smoothDelay) ease-in-out;
+    transition: all var(--smoothDelay) ease-in-out;
+}
+#main-container:hover {
+    box-shadow: 10px 10px 7px grey;
+    margin: 0px 20px 20px 0px;
 }
 
 .hidden {

@@ -37,8 +37,7 @@ $('select').each(function(){
         $styledSelect.text($(this).text()).removeClass('active');
         $this.val($(this).attr('rel'));
         $list.hide();
-        changeForm();
-        // console.log($this.val());
+        //console.log($this.val());
     });
   
     $(document).click(function() {
