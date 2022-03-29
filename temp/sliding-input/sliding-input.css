@@ -1,0 +1,69 @@
+:root {
+    --labInpRatio: 70%;
+    --height: 200%;
+    --width: 120%;
+    --pad: 4px;
+    --labBGColor: #1d3557;
+    --labFocusedBGColor: #457b9d;
+    --labColor: #cde0c5;
+    --labHoverColor: #a8dadc;
+    --labFocusedColor: var(--labBGColor);
+    --smoothDelay: 500ms;
+    --fontSizeFocus: 90%;
+}
+
+sliding-input div {
+    width: fit-content;
+    position: relative;
+    margin: 2px;
+}
+
+sliding-input div label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--width);
+    height: 100%;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+
+    /*-----centering label------*/
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+    /*--------------------------*/
+    background: var(--labBGColor);
+    color: var(--labColor);
+
+    -webkit-transition: all var(--smoothDelay) ease-in-out;
+    -moz-transition: all var(--smoothDelay) ease-in-out;
+    -o-transition: all var(--smoothDelay) ease-in-out;
+    -ms-transition: all var(--smoothDelay) ease-in-out;
+    transition: all var(--smoothDelay) ease-in-out;
+}
+
+sliding-input div:hover label {
+    width: var(--labInpRatio);
+    color: var(--labHoverColor);
+    font-size: var(--fontSizeFocus);
+}
+
+.typed {
+    background: var(--labFocusedBGColor);
+    color: var(--labFocusedColor);
+    width: var(--labInpRatio);
+    font: var(--fontSizeFocus) bold;
+}
+
+sliding-input div input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    padding: 0;
+    margin: 0;
+
+    width: calc(var(--width) + 2 * var(--pad));
+    line-height: calc(var(--height) + 2 * var(--pad));
+    padding-left: calc(var(--labInpRatio) + 2 * var(--pad));
+}

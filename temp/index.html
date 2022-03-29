@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <script src="sliding-input/sliding-input.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="sliding-input/sliding-input.css">
+    <link rel="stylesheet" href="style.css">
+    <title>GPA Report</title>
+</head>
+<body>
+<div id="main-container">
+    <div id="header">
+        <h1>Calculate Your GPA (1st year)</h1>
+        <select id="cycle" onchange="changeForm()">
+            <option value="hide">-- Select Cycle --</option>
+            <option value="p">Pysics Cycle</option>
+            <option value="c">Chemistry Cycle</option>
+        </select>
+    </div>
+    <div id="form-container">
+        <div id="hide"></div>
+        <div id="p"></div>
+        <div id="c"></div>
+    </div>
+    <script>setForm()</script>
+</div>
+</body>
+</html>
