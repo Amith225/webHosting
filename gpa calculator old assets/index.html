@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <script src="./script.js"></script>
+    <title>GPA Report</title>
+</head>
+
+<body>
+<div id="main-container">
+    <div id="header">
+        <h1>Calculate Your GPA (1st year)</h1>
+        <select id="cycle">
+            <option value="hide">-- Select Cycle --</option>
+            <option value="p">Pysics Cycle</option>
+            <option value="c">Chemistry Cycle</option>
+        </select>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="./select/script.js"></script>
+        <link rel="stylesheet" href="./select/style.css">
+    </div>
+    <selection id="course">
+        <form id="form">
+            <div id="hide" class="field">
+
+            </div>
+            <div id="p" class="field">
+                <input type="text" id="a" placeholder="Who Are You?"/>
+                <label for="a">Name</label>
+                <input type="text" id="b" placeholder="Who Are You?"/>
+                <label for="b">Name</label>
+<!--                <fieldInput label="Math" placeholder="0-50"></fieldInput>-->
+<!--                <fieldInput label="Pysics" placeholder="0-50"></fieldInput>-->
+<!--                <fieldInput label="Electrical" placeholder="0-50"></fieldInput>-->
+<!--                <fieldInput label="CAED" placeholder="0-50"></fieldInput>-->
+<!--                <fieldInput label="English" placeholder="0-50"></fieldInput>-->
+<!--                <fieldInput label="DT" placeholder="0-50"></fieldInput>-->
+<!--                <fieldInput label="Pysics" placeholder="0-50"></fieldInput>-->
+<!--                <fieldInput label="Pysics Lab" placeholder="0-50"></fieldInput>-->
+            </div>
+            <div id="c" class="field">
+
+            </div>
+        </form>
+    </selection>
+    <script>setForm()</script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="./input/script.js"></script>
+    <link rel="stylesheet" href="./input/style.css">
+</div>
+</body>
+
+</html>
