@@ -1,4 +1,4 @@
-let pSub = ["Math", "Pysics", "Electrical", "CAED", "Civil", "English", "DT", "Pysics Lab"];
+let pSub = ["Math", "Physics", "Electrical", "CAED", "Civil", "English", "DT", "Physics Lab"];
 let pCredit = [4, 3, 3, 3, 3, 2, 1, 1];
 let cSub = ["Math", "Mech", "Electronics", "CProgramming", "Chemistry", "DT", "Chemistry Lab", "CProgramming Lab", "Workshop"];
 let cCredit = [4, 3, 3, 3, 3, 1, 1, 1, 1];
