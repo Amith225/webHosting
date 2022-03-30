@@ -28,7 +28,7 @@ function setForm() {
             container.appendChild(si)
 
             let l = document.createElement("label");
-            l.id = 'lpg' + i.toString();
+            l.id = 'lpg' + cycle + i.toString();
             l.innerHTML = " GP<br>" + '&nbsp;&nbsp;&nbsp;' + "%";
             l.style = "align-self: center; text-align: right;"
             container.appendChild(l);
@@ -158,11 +158,12 @@ function checkNum(evt, elee) {
 
 function updateDep(i, cycle) {
     let c = cycleDict[cycle];
+    console.log(c)
     let marksInt = c[2], marksSee = c[3], maxMark = c[4], pers = c[5];
 
     let mi = document.getElementById("ii" + cycle + i.toString()).value;
     let ms = document.getElementById('is' + cycle + i.toString()).value;
-    let labPerGp = document.getElementById("lpg" + i.toString());
+    let labPerGp = document.getElementById("lpg" + cycle + i.toString());
     let textPerGp = ' GP<br>' + '&nbsp;&nbsp;&nbsp;' + '%';
     let mii = mi, mss = ms;
     if (!mi) {
