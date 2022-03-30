@@ -91,6 +91,8 @@ sliding-input div input {
 
 @media (pointer: none), (pointer: coarse) {
     * {
+        --width: 120%;
+        --labInpRatio: 60%;
         font-size: small;
     }
     sliding-input div input::placeholder {font-size: 80%}
