@@ -1,5 +1,6 @@
 :root {
     --labInpRatio: 70%;
+    --radPad: 6px;
     --height: 100%;
     --width: 140%;
     --pad: 6px;
@@ -30,7 +31,7 @@ sliding-input div label {
     position: absolute;
     top: 0;
     left: 0;
-    width: var(--width);
+    width: calc(var(--width) + var(--radPad) / 2);
     height: 100%;
     padding-left: var(--pad);
     padding-right: var(--pad);
@@ -50,9 +51,17 @@ sliding-input div label {
     -ms-transition: all var(--smoothDelay) ease-in-out;
     transition: all var(--smoothDelay) ease-in-out;
 }
-
+sliding-input div:hover::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: h var(--smoothDelay) forwards;
+}
 sliding-input div:hover label {
-    width: var(--labInpRatio);
+    width: calc(var(--labInpRatio));
     color: var(--labHoverColor);
     font-size: var(--fontSizeFocus);
 }
@@ -60,7 +69,7 @@ sliding-input div:hover label {
 .typed {
     background: linear-gradient(to right, var(--labFocusedBGColor), #777);
     color: var(--labFocusedColor);
-    width: var(--labInpRatio);
+    width: calc(var(--labInpRatio));
     font: var(--fontSizeFocus) bold;
 
     box-shadow: 5px 5px 7px grey;
@@ -71,16 +80,13 @@ sliding-input div input {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    border: 1px solid #000000;
     padding: 0;
     margin: 0;
     border-radius: var(--rad) 0 var(--rad) var(--rad);
 
-    border-color: #e74c3c;
-
     width: calc(var(--width) + 2 * var(--pad));
     line-height: calc(var(--height) + 2 * var(--pad));
-    padding-left: calc(var(--labInpRatio) + 2 * var(--pad));
+    padding-left: calc(var(--labInpRatio) + 2 * var(--pad) + var(--radPad));
 }
 
 @media (pointer: none), (pointer: coarse) {

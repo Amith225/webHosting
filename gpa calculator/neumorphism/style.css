@@ -7,12 +7,12 @@
     /*--color-inset-stop: rgba(0,0,0,0);*/
     /*color: #002c59;*/
 
-    --color-gradient-start: #fd5341;
-    --color-gradient-stop: #e74c3c;
+    --color-gradient-start: inherit;
+    --color-gradient-stop: inherit;
     --color-outset-start: rgba(0, 0, 0, 0);
     --color-outset-stop: rgba(0, 0, 0, 0);
-    --color-inset-start: #cb584c;
-    --color-inset-stop: #ff6e5f;
+    --color-inset-start: #e74c3c44;
+    --color-inset-stop: #e74c3c44;
     color: #001f3f;
 
     -webkit-appearance: none;
@@ -28,8 +28,9 @@
     margin: 5px;
     padding: 0.5em 1em;
     border-radius: 0 0 0 var(--rad);
-    background: linear-gradient(145deg, var(--color-gradient-start), var(--color-gradient-stop));
-    box-shadow: 0.4em 0.4em 0.8em var(--color-outset-start), -0.4em -0.4em 0.8em var(--color-outset-stop), inset 0.2em 0.2em 0.4em var(--color-inset-start), inset -0.2em -0.2em 0.4em var(--color-inset-stop);
+    background: linear-gradient(145deg, var(--color-inset-start), var(--color-gradient-start));
+    backdrop-filter: blur(22px);
+    box-shadow: 2px 2px 5px var(--color-outset-start), 2px 2px 5px var(--color-gradient-start) inset;
     transition: --color-gradient-stop 0.4s, --color-gradient-start 0.4s, --color-outset-start 0.8s, --color-outset-stop 0.8s, --color-inset-start 0.8s, --color-inset-stop 0.8s, color 1s, 0.4s ease-in-out;
 }
 
@@ -69,7 +70,6 @@
     --color-inset-stop: rgba(0, 0, 0, 0);
     color: #002c59;
 
-    margin: -0.4em 0.4em 0.4em -0.4em;
     transition: 0.4s ease-in-out;
     cursor: auto;
 }

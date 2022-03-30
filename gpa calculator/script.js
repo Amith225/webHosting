@@ -7,7 +7,6 @@ let cycleDict = {
     "c": [cSub, cCredit, [], [], 0, []],
     "p": [pSub, pCredit, [], [], 0, []]
 };
-let space = '&nbsp;';
 
 function setForm() {
     for (let cycle in cycleDict) {
@@ -28,14 +27,16 @@ function setForm() {
             container.appendChild(si)
 
             let l = document.createElement("label");
-            l.id = 'lpg' + cycle + i.toString(); l.className = "neo";
+            l.id = 'lpg' + cycle + i.toString();
+            l.className = "neo glass";
             l.innerHTML = " GP<br>" + '&nbsp;&nbsp;&nbsp;' + "%";
             l.style = "align-self: center; text-align: right;"
             container.appendChild(l);
 
             slidingInput(si);
             let children = si.children[0].children;
-            let inpCie = children[1], inpSee = children[2];
+            let lab = children[0], inpCie = children[1], inpSee = children[2];
+            lab.classList.add("glass");
             inpCie.id = 'ii' + cycle + i.toString();
             inpSee.id = 'is' + cycle + i.toString();
             inpCie.required = true;
@@ -75,7 +76,10 @@ function changeForm() {
             changeRequired(container, cycle, false)
         } else {
             container.classList.remove("hidden");
-            changeRequired(container, cycle, true)
+            changeRequired(container, cycle, true);
+            updateDep(0, cycle);
+            let labGpa = document.getElementById("gpa");
+            labGpa.innerText = " CGPA\n SGPA";
         }
     }
 }
@@ -229,8 +233,8 @@ function clear() {
     }
 }
 
-$(document).ready(function() {
-    $(document).on('submit', '#form-container', function() {
-      return false;
-     });
+$(document).ready(function () {
+    $(document).on('submit', '#form-container', function () {
+        return false;
+    });
 });

@@ -1,0 +1,114 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+#glass-morphism {
+    /*background-color: #0d0914;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.gradient-sphere {
+    position: absolute;
+    background: rgb(252, 255, 188);
+    background: linear-gradient(90deg, rgba(252, 255, 188, 1) 0%, rgba(231, 115, 213, 1) 50%, rgba(138, 228, 235, 1) 100%);
+    border-radius: 50%;
+    background-size: 230%;
+    background-position: center;
+}
+
+#sphere-1 {
+    width: 200px; height: 200px; top: 0; left: 25%;
+}
+
+#sphere-2 {
+    width: 200px; height: 200px; bottom: 0; right:  25%;
+}
+
+#sphere-3 {
+    width: 140px; height: 140px; top: 70%; right: 50%;
+}
+
+#sphere-4 {
+    width: 50px; height: 50px; top: 20%; right:  30%;
+}
+
+#sphere-5 {
+    width: 200px; height: 200px; bottom: 60%; right: 40%;
+}
+
+#sphere-6 {
+    width: 150px; height: 150px; top: 40%; left: 25%;
+}
+
+#sphere-7 {
+    width: 250px; height: 250px; top: 50%; left: 50%;
+}
+
+.glass {
+    display: flex;
+    /*position: relative;*/
+    /*top: 50px;*/
+    flex-direction: column;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.074);
+    color: #e6e6e6;
+    /*padding: 30px;*/
+    border-radius: 12px;
+    /*gap: 15px;*/
+    /*min-width: 250px;*/
+    /*min-height: 130px;*/
+    border: 3px solid rgba(255, 255, 255, 0.12);
+    /*animation-name: example;*/
+    /*animation-duration: 4s;*/
+    /*animation-iteration-count: infinite;*/
+}
+
+.glass .glass-head {
+    font-size: 32px;
+    font-weight: 900;
+    font-style: italic;
+    align-self: flex-end;
+    justify-content: flex-start;
+    opacity: 0.8;
+}
+
+.glass .glass-info {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    gap: 10px 0;
+    opacity: 0.8;
+    font-size: 17px;
+}
+
+.glass .glass-info .glass-span {
+    letter-spacing: 2px;
+}
+
+.glass .glass-info .glass-date {
+    font-size: 11px;
+    font-weight: 300;
+}
+
+.r-270 {
+    transform: rotate(270deg);
+}
+
+/*@keyframes example {*/
+/*    0% {*/
+/*        margin-left: 0px;*/
+/*    }*/
+
+/*    50% {*/
+/*        margin-left: 120px;*/
+/*    }*/
+
+/*    100% {*/
+/*        margin-left: 0px;*/
+/*    }*/
+
+/*}*/
