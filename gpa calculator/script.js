@@ -28,7 +28,7 @@ function setForm() {
             container.appendChild(si)
 
             let l = document.createElement("label");
-            l.id = 'lpg' + cycle + i.toString();
+            l.id = 'lpg' + cycle + i.toString(); l.className = "neo";
             l.innerHTML = " GP<br>" + '&nbsp;&nbsp;&nbsp;' + "%";
             l.style = "align-self: center; text-align: right;"
             container.appendChild(l);

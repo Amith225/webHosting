@@ -22,6 +22,15 @@ body {
     -ms-transition: all var(--smoothDelay) ease-in-out;
     transition: all var(--smoothDelay) ease-in-out;
 }
+#main-container:hover::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: h var(--smoothDelay) forwards;
+}
 #main-container:hover {
     box-shadow: 10px 10px 7px grey;
     margin: 0px 20px 20px 0px;
@@ -33,12 +42,12 @@ body {
 
 #hide, #p, #c {
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 70% 30%;
 }
 
 #end {
     display: grid;
-    grid-template-columns: 40% 40% 20%;
+    grid-template-columns: 35% 35% 30%;
 }
 
 #submit {
@@ -54,7 +63,7 @@ body {
     cursor: pointer;
     align-self: center;
     line-height: 1;
-    padding: 11px 5px;
+    padding: 16px 5px;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;

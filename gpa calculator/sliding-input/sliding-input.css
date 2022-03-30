@@ -1,7 +1,7 @@
 :root {
-    --labInpRatio: 60%;
+    --labInpRatio: 70%;
     --height: 100%;
-    --width: 120%;
+    --width: 140%;
     --pad: 6px;
     --labBGColor: #1d3557;
     /*--labBGColor: #ab3326;*/
@@ -86,8 +86,6 @@ sliding-input div input {
 @media (pointer: none), (pointer: coarse) {
     * {
         font-size: small;
-        --width: 160%;
-        --labInpRatio: 80%;
     }
     sliding-input div input::placeholder {font-size: 80%}
 }
