@@ -36,7 +36,7 @@ function setForm() {
             slidingInput(si);
             let children = si.children[0].children;
             let lab = children[0], inpCie = children[1], inpSee = children[2];
-            lab.classList.add("glass");
+            // lab.classList.add("glass");
             inpCie.id = 'ii' + cycle + i.toString();
             inpSee.id = 'is' + cycle + i.toString();
             inpCie.required = true;
@@ -154,7 +154,7 @@ function sum(array) {
 
 function checkNum(evt, elee) {
     let val = elee.value + evt.key
-    if (evt.which !== 8 && evt.which !== 0 && evt.which < 48 || evt.which > 57 || parseInt(val) > 50) {
+    if (evt.which !== 8 && evt.which !== 0 && evt.which < 48 || evt.which > 57 || val.length > 3) {
         evt.preventDefault()
     }
 }
@@ -181,7 +181,7 @@ function updateDep(i, cycle) {
         marksInt[i] = parseInt(mi);
         marksSee[i] = parseInt(ms);
         let per = m;
-        pers[i] = per;
+        pers[i] = per * cycleDict[cycle][1][i];
         if (per <= 100) {
             textPerGp = gradePoint(per).toString() + ' GP' + '<br>' + per.toString() + '&nbsp;&nbsp;&nbsp;' + '%'
         } else {
@@ -201,7 +201,8 @@ function updateDep(i, cycle) {
 
     let totalMarksI = sum(marksInt), totalMarksS = sum(marksSee);
     if (totalMarksI) {
-        tMarkText += 'CIE: ' + totalMarksI.toString() + '/' + maxMark.toString();
+        tMarkText += 'CIE: ' + totalMarksI.toString() + '/' + maxMark.toString() +
+            ' (' + (totalMarksI/maxMark*100).toFixed(2).toString() + ')';
     } else {
         tMarkText = 'CIE: ';
     }
@@ -211,7 +212,7 @@ function updateDep(i, cycle) {
         tMarkText += '\n' + 'SEE: ';
     }
     if (totalMarksI || totalMarksS) {
-        tPerGp = 'Gp<br>' + (sum(pers) / pers.length).toFixed(2).toString() + '&nbsp;&nbsp;&nbsp;%';
+        tPerGp = 'Gp<br>' + (sum(pers) / sum(cycleDict[cycle][1])).toFixed(2).toString() + '&nbsp;&nbsp;&nbsp;%';
     }
     labTPerGp.innerHTML = tPerGp;
     labTMark.innerText = tMarkText;

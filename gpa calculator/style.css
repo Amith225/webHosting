@@ -19,8 +19,7 @@ body {
     color: #fff;
     padding: 20px;
     background-color: #e74c3c44;
-    width: 33%;
-    min-height: 100vh;
+    width: 40%;
     top: 50px;
     box-shadow: 5px 5px 7px gray;
     margin-bottom: 100px;
@@ -41,8 +40,8 @@ body {
     animation: h var(--smoothDelay) forwards;
 }
 #main-container:hover {
-    box-shadow: 10px 10px 7px grey;
-    margin: -10px 10px 110px -10px;
+    /*box-shadow: 10px 10px 7px grey;*/
+    /*margin: -10px 10px 110px -10px;*/
 }
 
 .hidden {
@@ -56,12 +55,16 @@ body {
 
 #end {
     display: grid;
-    grid-template-columns: 35% 35% 30%;
+    grid-template-columns: 26% 44% 30%;
 }
 
 #submit {
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+sliding-input div input:disabled::placeholder {
+    color: #3d3636;
 }
 
 .btn {
@@ -112,11 +115,6 @@ body {
     /*#hide, #p, #c, #end {*/
     /*    grid-template-columns: 80% 20%*/
     /*}*/
-}
-
-sliding-input div label {
-    animation: hue-rotate 8s linear infinite;
-    /*background: linear-gradient(to left, currentColor, #fff);*/
 }
 
 @keyframes hue-rotate {
