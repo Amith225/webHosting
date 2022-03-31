@@ -236,8 +236,8 @@ function clear(cycle) {
     let elee = form.getElementsByTagName("input");
     for (let e in elee) {
         elee[e].value = '';
-        updateDep(e, cycle);
     }
+    for (let i = 0; i < cycleDict[cycle][0].length; i++) updateDep(i, cycle)
 }
 
 $(document).ready(function () {
