@@ -68,7 +68,8 @@ function setForm() {
 }
 
 function changeForm() {
-    let cycleValue = document.getElementById("cycle").value;
+    let cycleValue = document.getElementById("cycle").value, chk = document.getElementById("chk");
+    enableInpSee(!chk.checked, cycleValue, true);
     for (let cycle in cycleDict) {
         let container = document.getElementById(cycle);
         if (cycleValue !== cycle) {
@@ -162,13 +163,12 @@ function checkNum(evt, elee) {
 
 function updateDep(i, cycle) {
     let c = cycleDict[cycle];
-    console.log(c)
     let marksInt = c[2], marksSee = c[3], maxMark = c[4], pers = c[5];
 
     let mi = document.getElementById("ii" + cycle + i.toString()).value;
     let ms = document.getElementById('is' + cycle + i.toString()).value;
     let labPerGp = document.getElementById("lpg" + cycle + i.toString());
-    let textPerGp = ' GP<br>' + '&nbsp;&nbsp;&nbsp;' + '%';
+    let textPerGp = ' Credit<br>' + '&nbsp;&nbsp;&nbsp;' + '%';
     let mii = mi, mss = ms;
     if (!mi) {
         mii = ms
@@ -178,8 +178,8 @@ function updateDep(i, cycle) {
     }
     let m = parseInt(mii) + parseInt(mss);
     if (m) {
-        marksInt[i] = parseInt(mi);
-        marksSee[i] = parseInt(ms);
+        if (mi) marksInt[i] = parseInt(mi);
+        if (ms) marksSee[i] = parseInt(ms);
         let per = m;
         pers[i] = per * cycleDict[cycle][1][i];
         if (per <= 100) {
@@ -202,27 +202,32 @@ function updateDep(i, cycle) {
     let totalMarksI = sum(marksInt), totalMarksS = sum(marksSee);
     if (totalMarksI) {
         tMarkText += 'CIE: ' + totalMarksI.toString() + '/' + maxMark.toString() +
-            ' (' + (totalMarksI/maxMark*100).toFixed(2).toString() + ')';
+            ' (' + (totalMarksI / maxMark * 100).toFixed(2).toString() + ')' + '%';
     } else {
         tMarkText = 'CIE: ';
     }
     if (totalMarksS) {
-        tMarkText += '\n' + 'SEE: ' + totalMarksS.toString() + '/' + maxMark.toString();
+        tMarkText += '\n' + 'SEE: ' + totalMarksS.toString() + '/' + maxMark.toString() +
+            ' (' + (totalMarksI / maxMark * 100).toFixed(2).toString() + ')' + '%';
     } else {
         tMarkText += '\n' + 'SEE: ';
     }
     if (totalMarksI || totalMarksS) {
-        tPerGp = 'Gp<br>' + (sum(pers) / sum(cycleDict[cycle][1])).toFixed(2).toString() + '&nbsp;&nbsp;&nbsp;%';
+        tPerGp = 'Credit<br>' + (sum(pers) / sum(cycleDict[cycle][1])).toFixed(2).toString() + '&nbsp;&nbsp;&nbsp;%';
     }
     labTPerGp.innerHTML = tPerGp;
     labTMark.innerText = tMarkText;
+
+    calculate();
 }
 
 
-function enableInpSee(disable = false, cycle) {
-    for (let i = 0; i < marksSee.length; i++) {
+function enableInpSee(disable = false, cycle, toClear=true) {
+    for (let i = 0; i < cycleDict[cycle][0].length; i++) {
         let inpSee = document.getElementById('is' + cycle + i.toString());
         inpSee.disabled = disable;
+        inpSee.required = !disable;
+        if (toClear) clear();
     }
 }
 

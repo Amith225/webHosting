@@ -30,12 +30,21 @@
 <div id="main-container" class="glass">
     <div id="header">
         <h3>Calculate Your GPA (1st year)</h3>
+        <h4>If SEE disabled or left empty, will assume SEE marks to be same as in CIE</h4>
+        <h4>If CIE left empty, will assume 'zero'</h4>
+        <h4>CGPA does not consider failed subjects, SGPA does</h4>
         <select id="cycle" onchange="changeForm()">
             <option value="hide">-- Select Cycle --</option>
             <option value="p">Physics Cycle</option>
             <option value="c">Chemistry Cycle</option>
         </select>
-    </div>
+        <div style="padding-left: 15px">
+            <label for="chk">Enable SEE Marks Entry</label>
+            <input type="checkbox" id="chk"
+                   onchange="enableInpSee(!document.getElementById('chk').checked,
+                                          document.getElementById('cycle').value)">
+        </div>
+    </div><br>
     <form id="form-container" onsubmit="calculate()">
         <div id="hide"></div>
         <div id="p"></div>
@@ -45,13 +54,13 @@
             <label style="display: flex; align-self: center; justify-content: center;" class="neo">Total
                 =<br>(20)</label>
             <label id='tm' style="align-self: center" class="neo">CIE: <br>SEE: </label>
-            <label id='lpg' style="align-self: center; text-align: right;" class="neo">GP <br>
+            <label id='lpg' style="align-self: center; text-align: right;" class="neo">Credit <br>
                 &nbsp;&nbsp;&nbsp;%</label>
         </div>
         <br>
         <div id="submit">
-            <input type="submit" value="Calculate" class="btn">
-            <label id="gpa" style="align-self: center; text-align: right;" class="neo"> CGPA<br> SGPA</label>
+<!--            <input type="submit" value="Calculate" class="btn">-->
+            <label id="gpa" style="align-self: center; text-align: center;" class="neo"> CGPA<br> SGPA</label>
         </div>
     </form>
     <script>setForm()</script>

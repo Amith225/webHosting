@@ -60,7 +60,7 @@ body {
 
 #submit {
     display: grid;
-    grid-template-columns: 50% 50%;
+    /*grid-template-columns: 50% 50%;*/
 }
 
 sliding-input div input:disabled::placeholder {
@@ -95,7 +95,7 @@ sliding-input div input:disabled::placeholder {
     left: 0;
     right: 0;
     bottom: 0;
-    animation: h var(--smoothDelay) forwards;
+    animation: h .4s forwards;
 }
 .btn:hover, .btn:focus {
     background-position: 0;
