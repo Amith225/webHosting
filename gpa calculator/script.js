@@ -168,7 +168,7 @@ function updateDep(i, cycle) {
     let mi = document.getElementById("ii" + cycle + i.toString()).value;
     let ms = document.getElementById('is' + cycle + i.toString()).value;
     let labPerGp = document.getElementById("lpg" + cycle + i.toString());
-    let textPerGp = ' Credit<br>' + '&nbsp;&nbsp;&nbsp;' + '%';
+    let textPerGp = ' GP<br>' + '&nbsp;&nbsp;&nbsp;' + '%';
     let mii = mi, mss = ms;
     if (!mi) {
         mii = ms
@@ -227,15 +227,16 @@ function enableInpSee(disable = false, cycle, toClear=true) {
         let inpSee = document.getElementById('is' + cycle + i.toString());
         inpSee.disabled = disable;
         inpSee.required = !disable;
-        if (toClear) clear();
+        if (toClear) clear(cycle);
     }
 }
 
-function clear() {
+function clear(cycle) {
     let form = document.getElementById("form-container");
     let elee = form.getElementsByTagName("input");
     for (let e in elee) {
         elee[e].value = '';
+        updateDep(e, cycle);
     }
 }
 
