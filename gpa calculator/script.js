@@ -222,7 +222,7 @@ function updateDep(i, cycle) {
     }
     if (totalMarksS) {
         tMarkText += '\n' + 'SEE: ' + totalMarksS.toString() + '/' + maxMark.toString() +
-            ' (' + (totalMarksI / maxMark * 100).toFixed(2).toString() + ')' + '%';
+            ' (' + (totalMarksS / maxMark * 100).toFixed(2).toString() + ')' + '%';
     } else {
         tMarkText += '\n' + 'SEE: ';
     }
