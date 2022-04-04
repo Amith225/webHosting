@@ -10,7 +10,8 @@
     --labFocusedBGColor: #457b9d;
     /*--labColor: #8ea485;*/
     --labColor: black;
-    --labHoverColor: #a8dadc;
+    --labHoverColor: bisque;
+    /*color: bisque;*/
     --labFocusedColor: black;
     --smoothDelay: 500ms;
     --fontSizeFocus: 90%;
@@ -72,7 +73,8 @@ sliding-input div:hover label {
     background: linear-gradient(to right, var(--labFocusedBGColor), #777);
     color: var(--labFocusedColor);
     width: calc(var(--labInpRatio));
-    font: var(--fontSizeFocus) bold;
+    font: var(--fontSizeFocus);
+    font-weight: 1000;
 
     box-shadow: 5px 5px 7px grey;
     margin: -5px 5px 5px -5px;

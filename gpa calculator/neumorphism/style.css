@@ -13,9 +13,11 @@
     --color-outset-stop: rgba(0, 0, 0, 0);
     --color-inset-start: #e74c3c44;
     --color-inset-stop: #e74c3c44;
-    color: #001f3f;
+    color: #fcd6f5;
+    font-weight: bold;
 
     -webkit-appearance: none;
+    font-family: 'Montserrat', sans-serif;
     -moz-appearance: none;
     appearance: none;
     -webkit-user-select: none;

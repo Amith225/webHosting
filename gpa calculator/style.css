@@ -67,6 +67,10 @@ sliding-input div input:disabled::placeholder {
     color: #3d3636;
 }
 
+sliding-input div label {
+    font-weight: 1000;
+}
+
 .btn {
     box-sizing: border-box;
     appearance: none;

@@ -134,15 +134,29 @@ function calculate() {
         }
         let m = parseInt(mii) + parseInt(mss);
         let per = m, currGp = c * gradePoint(per);
+        if (per > 100) {
+            currGp = 0
+        }
         cd += c;
         gp += currGp;
         if (currGp !== 0) {
             cgpaCd += c
         }
     }
-    const sgpa = gp / cd, cgpa = gp / cgpaCd;
+    let sgpa = gp / cd, cgpa = gp / cgpaCd;
+    if (!cgpa) {
+        cgpa = 0
+    }
     let labGpa = document.getElementById("gpa");
-    labGpa.innerText = cgpa.toString() + " CGPA\n" + sgpa.toString() + " SGPA";
+    let lgpText = ''
+    if (cgpa) {
+        lgpText += cgpa.toString() + " CGPA\n"
+    } else {
+        lgpText += 'CGPA\n'
+    }
+    if (sgpa) lgpText += sgpa.toString() + " SGPA"
+    else lgpText += " SGPA"
+    labGpa.innerText = lgpText;
 }
 
 
@@ -197,7 +211,7 @@ function updateDep(i, cycle) {
     labPerGp.innerHTML = textPerGp;
 
     let labTMark = document.getElementById('tm'), tMarkText = ''
-    let labTPerGp = document.getElementById('lpg'), tPerGp = 'GP<br>&nbsp;&nbsp;&nbsp;%'
+    let labTPerGp = document.getElementById('lpg'), tPerGp = 'Credit<br>&nbsp;&nbsp;&nbsp;%'
 
     let totalMarksI = sum(marksInt), totalMarksS = sum(marksSee);
     if (totalMarksI) {
@@ -222,7 +236,7 @@ function updateDep(i, cycle) {
 }
 
 
-function enableInpSee(disable = false, cycle, toClear=true) {
+function enableInpSee(disable = false, cycle, toClear = true) {
     for (let i = 0; i < cycleDict[cycle][0].length; i++) {
         let inpSee = document.getElementById('is' + cycle + i.toString());
         inpSee.disabled = disable;
