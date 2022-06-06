@@ -185,6 +185,8 @@ body {
     @media (pointer: none), (pointer: coarse) {
       &:hover {
         .caption {
+          height: 70%;
+          width: 90px;
         }
       }
     }

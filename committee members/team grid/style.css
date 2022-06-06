@@ -140,5 +140,11 @@ html {
   -o-transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
+@media (pointer: none), (pointer: coarse) {
+  .team-container .member-card:hover .caption {
+    height: 70%;
+    width: 90px;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
