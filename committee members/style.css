@@ -1,0 +1,33 @@
+html {
+  width: 100vw;
+  max-width: 100vw;
+}
+
+body {
+  margin: 0;
+  background: #e5ecf5;
+}
+
+.team-container {
+  padding: 20px 0;
+}
+
+#\#page_head {
+  color: #3b3b98;
+  font-size: 4rem;
+  margin: 0.67em 0;
+  box-sizing: border-box;
+  padding-left: 0.67em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  display: block;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */
