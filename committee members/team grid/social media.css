@@ -11,10 +11,20 @@ body {
   transform: translate(-50%, -50%);
   display: flex;
 }
+@media (pointer: none), (pointer: coarse) {
+  .social-menu ul {
+    flex-direction: column;
+  }
+}
 
 .social-menu ul li {
   list-style: none;
   margin: 0 15px;
+}
+@media (pointer: none), (pointer: coarse) {
+  .social-menu ul li {
+    margin-bottom: 15px;
+  }
 }
 
 .social-menu ul li .fab {
