@@ -7,5 +7,6 @@
     <orderEntry type="jdk" jdkName="Python 3.10 (webHosting)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="66aa7c98b3" level="application" />
   </component>
 </module>

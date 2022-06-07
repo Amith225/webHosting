@@ -5,7 +5,7 @@ html {
 
 body {
   margin: 0;
-  background: #e5ecf5;;
+  background: #e5ecf5;
 }
 
 nav {
@@ -15,7 +15,7 @@ nav {
   padding: 20px 0;
 }
 
-#\#page_head {
+#page_head {
   color: #3b3b98;
   font-size: 4rem;
   margin: 0.67em 0;
@@ -32,4 +32,33 @@ nav {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+
+  @media screen and (max-width: 375px) {
+    font-size: 2.5rem;
+  }
+}
+
+.memb_type {
+  color: #5858b7;
+  font-size: 3rem;
+  box-sizing: border-box;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  display: block;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: overline underline;
+  text-transform: uppercase;
+  margin-bottom: -15px;
+
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  @media screen and (max-width: 375px) {
+    font-size: 1.75rem;
+  }
 }
